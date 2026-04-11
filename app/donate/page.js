@@ -25,13 +25,6 @@ const impactOptions = {
   },
 };
 
-const givingLevels = [
-  { amount: "$25", impact: "Contributes to hygiene and household essentials for vulnerable families." },
-  { amount: "$50", impact: "Supports school materials and targeted child support activities." },
-  { amount: "$100", impact: "Helps fund water-point repair inputs and local coordination costs." },
-  { amount: "$250", impact: "Supports multi-household relief and resilience support packages." },
-];
-
 const bankDetails = {
   bankName: "Centenary Bank Uganda",
   accountName: "Alliance for Fundamental Development Initiative",
@@ -71,7 +64,7 @@ export default function DonatePage({ searchParams }) {
               <p className="mt-2 text-sm text-slate-600">{focus.note}</p>
             </div>
 
-            <DonateForm selectedCause={selectedCause} focus={focus} givingLevels={givingLevels} />
+            <DonateForm selectedCause={selectedCause} focus={focus} />
           </article>
 
           <aside className="space-y-5">
@@ -88,7 +81,7 @@ export default function DonatePage({ searchParams }) {
               </li>
               <li className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
                 <strong className="text-slate-900">3. Receive confirmation</strong>
-                <p className="mt-1">A confirmation summary and next steps are presented on the mock checkout page.</p>
+                <p className="mt-1">A confirmation summary and next steps are presented after checkout completion.</p>
               </li>
             </ol>
             </section>

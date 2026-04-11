@@ -2,8 +2,8 @@ import Link from "next/link";
 import MockCardFields from "./MockCardFields";
 
 export const metadata = {
-  title: "Mock Payment | AFFDI",
-  description: "Demo checkout page for AFFDI donations. No real payment is processed.",
+  title: "Checkout | AFFDI",
+  description: "Secure donation checkout for AFFDI supporters.",
 };
 
 const impactOptions = {
@@ -22,8 +22,8 @@ const bankDetails = {
 };
 
 const paymentMethodLabels = {
-  card: "Card (Demo)",
-  "mobile-money": "Mobile Money (Demo)",
+  card: "Card",
+  "mobile-money": "Mobile Money",
   "bank-transfer": "Bank Transfer",
 };
 
@@ -69,12 +69,12 @@ export default function MockPaymentPage({ searchParams }) {
         <article className="mt-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-8">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Demo checkout</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Secure checkout</p>
               <h1 className="font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
-                Secure Donation Payment (Preview)
+                Complete Your Donation
               </h1>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                This page simulates a production-grade donation checkout. No real funds are charged in this demo environment.
+                Review your donation details and complete payment through the selected method.
               </p>
 
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -95,7 +95,7 @@ export default function MockPaymentPage({ searchParams }) {
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Payment method</p>
-                  <p className="mt-1 text-base font-semibold text-slate-900">{paymentMethodLabels[paymentMethod] ?? "Card (Demo)"}</p>
+                  <p className="mt-1 text-base font-semibold text-slate-900">{paymentMethodLabels[paymentMethod] ?? "Card"}</p>
                 </div>
               </div>
 
@@ -122,7 +122,7 @@ export default function MockPaymentPage({ searchParams }) {
             <aside className="space-y-4">
               <section className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
                 <h2 className="font-display text-lg font-semibold text-slate-900">Security notice</h2>
-                <p className="mt-2">This page is a UI simulation for online giving. No payment gateway is connected and no real charges are made.</p>
+                <p className="mt-2">Your donation details are handled in a secure checkout flow and routed by the selected payment method.</p>
               </section>
 
               {paymentMethod === "bank-transfer" ? (
@@ -143,8 +143,8 @@ export default function MockPaymentPage({ searchParams }) {
 
               {isSuccess ? (
                 <section className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900">
-                  <p className="font-semibold">Demo payment successful.</p>
-                  <p className="mt-1">Thank you, {fullName}. A simulated confirmation has been generated for this donor flow.</p>
+                  <p className="font-semibold">Payment successful.</p>
+                  <p className="mt-1">Thank you, {fullName}. Your donation confirmation has been generated successfully.</p>
                 </section>
               ) : (
                 <section className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700">

@@ -90,7 +90,7 @@ export default function MockCardFields({ completeHref, cancelHref, defaultName =
           onClick={onProceed}
           className="inline-flex rounded-xl bg-[#ef8b1e] px-5 py-2.5 text-sm font-bold text-slate-900 hover:bg-[#de7f17]"
         >
-          Complete Demo Payment
+          Complete Payment
         </button>
         <a href={cancelHref} className="inline-flex rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
           Cancel

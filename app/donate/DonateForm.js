@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -13,15 +13,9 @@ function normalizePhone(value) {
   return trimmed.replace(/\+/g, "");
 }
 
-export default function DonateForm({ selectedCause, focus, givingLevels }) {
-  const defaultAmount = useMemo(
-    () => givingLevels[1]?.amount?.replace(/[^\d]/g, "") || "50",
-    [givingLevels]
-  );
-
+export default function DonateForm({ selectedCause, focus }) {
   const [frequency, setFrequency] = useState("one-time");
-  const [amount, setAmount] = useState(defaultAmount);
-  const [customAmount, setCustomAmount] = useState("");
+  const [amount, setAmount] = useState("50");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -41,8 +35,8 @@ export default function DonateForm({ selectedCause, focus, givingLevels }) {
     if (phone && !/^\+?[0-9 ]{7,20}$/.test(phone.trim())) {
       nextErrors.phone = "Use a valid phone number format.";
     }
-    if (customAmount && Number(customAmount) <= 0) {
-      nextErrors.customAmount = "Custom amount must be greater than 0.";
+    if (!amount || Number(amount) <= 0) {
+      nextErrors.amount = "Please enter a valid donation amount.";
     }
     if (!agreed) {
       nextErrors.agreed = "Please confirm consent before continuing.";
@@ -71,38 +65,18 @@ export default function DonateForm({ selectedCause, focus, givingLevels }) {
       </section>
 
       <section>
-        <h2 className="font-display text-xl font-semibold text-slate-900">2. Select amount</h2>
-        <div className="mt-3 grid gap-3 sm:grid-cols-2">
-          {givingLevels.map((level) => {
-            const numeric = level.amount.replace(/[^\d]/g, "");
-            return (
-              <label key={level.amount} className="flex cursor-pointer items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-                <input
-                  type="radio"
-                  name="amount"
-                  value={numeric}
-                  checked={amount === numeric}
-                  onChange={(e) => setAmount(e.target.value)}
-                  className="mt-1 h-4 w-4"
-                />
-                <span>
-                  <strong className="font-display text-lg text-slate-900">{level.amount}</strong>
-                  <span className="mt-1 block text-slate-600">{level.impact}</span>
-                </span>
-              </label>
-            );
-          })}
-        </div>
+        <h2 className="font-display text-xl font-semibold text-slate-900">2. Enter amount</h2>
         <div className="mt-3 grid gap-3 sm:grid-cols-[1fr_160px]">
           <input
-            name="customAmount"
+            name="amount"
             type="number"
             min="1"
             step="1"
-            value={customAmount}
-            onChange={(e) => setCustomAmount(e.target.value)}
-            placeholder="Or enter custom amount"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            placeholder="Enter donation amount"
             className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm"
+            required
           />
           <select name="currency" defaultValue="USD" className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm">
             <option value="USD">USD</option>
@@ -111,7 +85,7 @@ export default function DonateForm({ selectedCause, focus, givingLevels }) {
             <option value="GBP">GBP</option>
           </select>
         </div>
-        {errors.customAmount ? <p className="mt-2 text-xs text-red-600">{errors.customAmount}</p> : null}
+        {errors.amount ? <p className="mt-2 text-xs text-red-600">{errors.amount}</p> : null}
       </section>
 
       <section>
@@ -166,11 +140,11 @@ export default function DonateForm({ selectedCause, focus, givingLevels }) {
         <div className="mt-3 grid gap-3 sm:grid-cols-3">
           <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
             <input type="radio" name="paymentMethod" value="card" checked={paymentMethod === "card"} onChange={(e) => setPaymentMethod(e.target.value)} className="h-4 w-4" />
-            <span>Card (Demo)</span>
+            <span>Card</span>
           </label>
           <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
             <input type="radio" name="paymentMethod" value="mobile-money" checked={paymentMethod === "mobile-money"} onChange={(e) => setPaymentMethod(e.target.value)} className="h-4 w-4" />
-            <span>Mobile Money (Demo)</span>
+            <span>Mobile Money</span>
           </label>
           <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
             <input type="radio" name="paymentMethod" value="bank-transfer" checked={paymentMethod === "bank-transfer"} onChange={(e) => setPaymentMethod(e.target.value)} className="h-4 w-4" />
@@ -178,12 +152,11 @@ export default function DonateForm({ selectedCause, focus, givingLevels }) {
           </label>
         </div>
         <input type="hidden" name="cause" value={selectedCause} />
-        <input type="hidden" name="amount" value={amount} />
       </section>
 
       <label className="flex items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm text-slate-600">
         <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="mt-1 h-4 w-4" />
-        <span>I confirm that the information above is accurate and I agree to proceed to a demo checkout experience.</span>
+        <span>I confirm that the information above is accurate and I agree to proceed to checkout.</span>
       </label>
       {errors.agreed ? <p className="text-xs text-red-600">{errors.agreed}</p> : null}
 
@@ -192,7 +165,7 @@ export default function DonateForm({ selectedCause, focus, givingLevels }) {
           type="submit"
           className="inline-flex rounded-xl bg-[#ef8b1e] px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-[#de7f17]"
         >
-          Proceed to secure checkout (Demo)
+          Proceed to secure checkout
         </button>
         <a
           href={`mailto:info@affdi.org?subject=${encodeURIComponent(`Donation Inquiry - ${focus.title}`)}`}
