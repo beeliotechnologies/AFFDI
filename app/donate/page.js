@@ -110,7 +110,7 @@ export default function DonatePage({ searchParams }) {
               <p className="mt-1 text-sm text-slate-600">{focus.title} — {focus.note}</p>
             </div>
 
-            <DonorWizard focus={focus} bankDetails={bankDetails} />
+            <DonorWizard selectedCause={selectedCause} focus={focus} bankDetails={bankDetails} />
           </article>
         </div>
       </section>

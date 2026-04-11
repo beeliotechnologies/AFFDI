@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -13,10 +14,12 @@ function normalizePhone(value) {
   return trimmed.replace(/\+/g, "");
 }
 
-export default function DonorWizard({ focus, bankDetails }) {
+export default function DonorWizard({ selectedCause, focus, bankDetails }) {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [frequency, setFrequency] = useState("one-time");
   const [amount, setAmount] = useState("50");
+  const [currency, setCurrency] = useState("USD");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -24,7 +27,6 @@ export default function DonorWizard({ focus, bankDetails }) {
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState({});
-  const [failureMessage, setFailureMessage] = useState("");
 
   const status = useMemo(
     () => [
@@ -59,24 +61,29 @@ export default function DonorWizard({ focus, bankDetails }) {
 
   const next = () => {
     if (!validateStep(step)) return;
-    setFailureMessage("");
     setStep((value) => Math.min(value + 1, 4));
   };
 
   const back = () => {
-    setFailureMessage("");
     setStep((value) => Math.max(value - 1, 1));
   };
 
   const finish = () => {
     if (!validateStep(3)) return;
-    setFailureMessage(
-      "We could not process this payment right now. Please use bank transfer or contact donations support."
-    );
-    setStep(4);
+    const params = new URLSearchParams();
+    params.set("amount", amount || "0");
+    params.set("currency", currency);
+    params.set("cause", selectedCause || "unrestricted");
+    params.set("fullName", fullName.trim());
+    params.set("email", email.trim());
+    if (phone.trim()) params.set("phone", phone.trim());
+    if (country.trim()) params.set("country", country.trim());
+    params.set("frequency", frequency);
+    params.set("paymentMethod", paymentMethod);
+
+    router.push(`/donate/checkout?${params.toString()}`);
   };
 
-  const paymentTitle = paymentMethod === "card" ? "Card" : paymentMethod === "mobile-money" ? "Mobile Money" : "Bank Transfer";
   const formattedAmount = `${amount ? `${amount}` : "0"}`;
 
   return (
@@ -135,7 +142,12 @@ export default function DonorWizard({ focus, bankDetails }) {
                 className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm"
                 required
               />
-              <select name="currency" defaultValue="USD" className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm">
+              <select
+                name="currency"
+                value={currency}
+                onChange={(e) => setCurrency(e.target.value)}
+                className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm"
+              >
                 <option value="USD">USD</option>
                 <option value="UGX">UGX</option>
                 <option value="EUR">EUR</option>
@@ -260,11 +272,11 @@ export default function DonorWizard({ focus, bankDetails }) {
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Step 4 of 4</p>
               <h2 className="mt-1 font-display text-2xl font-semibold text-slate-900">Review and pay</h2>
-              <p className="mt-2 text-sm text-slate-600">You are about to submit the following donation.</p>
+              <p className="mt-2 text-sm text-slate-600">You are about to continue to secure checkout with the following donation details.</p>
             </div>
 
             <div className="grid gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700 sm:grid-cols-2">
-              <div><span className="font-semibold text-slate-900">Amount:</span> {formattedAmount}</div>
+              <div><span className="font-semibold text-slate-900">Amount:</span> {currency} {formattedAmount}</div>
               <div><span className="font-semibold text-slate-900">Frequency:</span> {frequency.replace("-", " ")}</div>
               <div><span className="font-semibold text-slate-900">Focus:</span> {focus.title}</div>
               <div><span className="font-semibold text-slate-900">Method:</span> {paymentMethod}</div>
@@ -272,23 +284,17 @@ export default function DonorWizard({ focus, bankDetails }) {
               <div><span className="font-semibold text-slate-900">Email:</span> {email}</div>
             </div>
 
-            <div className="rounded-xl border border-slate-200 bg-[#eef4fb] p-4 text-sm text-slate-700">
-              <p className="font-semibold text-slate-900">Payment status</p>
-              <p className="mt-1">{failureMessage || "Ready for payment processing."}</p>
-              {failureMessage && bankDetails ? (
-                <div className="mt-3 rounded-lg border border-slate-200 bg-white p-3">
-                  <p className="font-semibold text-slate-900">Bank transfer details</p>
-                  <dl className="mt-2 grid gap-2 text-sm">
-                    <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Bank</dt><dd>{bankDetails.bankName}</dd></div>
-                    <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Account Name</dt><dd>{bankDetails.accountName}</dd></div>
-                    <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Account No.</dt><dd>{bankDetails.accountNumber}</dd></div>
-                    <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Branch</dt><dd>{bankDetails.branch}</dd></div>
-                    <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">SWIFT</dt><dd>{bankDetails.swift}</dd></div>
-                  </dl>
-                  <p className="mt-3 text-xs text-slate-600">Please email proof of payment to <a className="font-semibold text-[#1d4f8f] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a>.</p>
-                </div>
-              ) : null}
-            </div>
+            {bankDetails ? (
+              <div className="rounded-xl border border-slate-200 bg-[#eef4fb] p-4 text-sm text-slate-700">
+                <p className="font-semibold text-slate-900">If card payment fails at checkout</p>
+                <p className="mt-1">Bank transfer details will be shown automatically. You can also use these details directly:</p>
+                <dl className="mt-3 grid gap-2 text-sm">
+                  <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Bank</dt><dd>{bankDetails.bankName}</dd></div>
+                  <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Account Name</dt><dd>{bankDetails.accountName}</dd></div>
+                  <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Account No.</dt><dd>{bankDetails.accountNumber}</dd></div>
+                </dl>
+              </div>
+            ) : null}
 
             <div className="flex items-center justify-between gap-3">
               <button type="button" onClick={back} className="inline-flex rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
