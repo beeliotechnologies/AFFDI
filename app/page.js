@@ -132,9 +132,9 @@ const donateImage = gallery[11];
 const heroSlides = [
   {
     eyebrow: 'Alliance For Fundamental Development Initiative',
-    title: 'Improving Community Resilience',
+    title: 'Improving Community Resilience in 12+ Eastern Uganda Communities',
     description:
-      'We are committed to save lives, alleviate suffering, and build resilience in vulnerable communities through practical support and sustainable local programs.',
+      'AFFDI delivers practical water, shelter, education, and household recovery programs that have reached over 30,000 people across Kibuku and surrounding districts.',
     backgroundImage: heroImages[0],
     actionHref: '#programs',
     actionLabel: 'Explore Our Programs',
@@ -142,9 +142,9 @@ const heroSlides = [
   },
   {
     eyebrow: 'Water, Education, Shelter',
-    title: 'Building Hope in Every Community',
+    title: 'From Water Access to Safer Schools, We Support Families End-to-End',
     description:
-      'From clean water access to better school facilities and safe housing, AFFDI works side by side with families to improve everyday life.',
+      'Our teams work with local leaders to restore water points, strengthen classrooms, and improve shelter safety for vulnerable households.',
     backgroundImage: heroImages[1],
     actionHref: '#about',
     actionLabel: 'Learn More About AFFDI',
@@ -154,7 +154,7 @@ const heroSlides = [
     eyebrow: 'Support Vulnerable Families',
     title: 'Your Donation Creates Real Impact',
     description:
-      'Together we can provide food packages, school support, and household essentials for widows, orphans, and vulnerable households.',
+      'Your contribution directly supports food support cycles, child learning continuity, and household essentials for widows, orphans, and high-risk families.',
     backgroundImage: heroImages[2],
     actionHref: '#donate',
     actionLabel: 'Donate Today',

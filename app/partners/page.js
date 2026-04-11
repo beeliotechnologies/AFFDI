@@ -5,6 +5,16 @@ import { partners } from "../data/partners";
 export const metadata = {
   title: "Partners & Donors | AFFDI",
   description: "Meet the organizations and institutions supporting AFFDI community development work in Uganda.",
+  openGraph: {
+    title: "Partners & Donors | AFFDI",
+    description: "Meet the organizations and institutions supporting AFFDI community development work in Uganda.",
+    url: "/partners",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Partners & Donors | AFFDI",
+    description: "Meet the organizations and institutions supporting AFFDI community development work in Uganda.",
+  },
 };
 
 export default function PartnersPage() {

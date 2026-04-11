@@ -1,9 +1,20 @@
 import Link from "next/link";
-import DonateForm from "./DonateForm";
+import Image from "next/image";
+import DonorWizard from "./DonorWizard";
 
 export const metadata = {
   title: "Donate | AFFDI",
   description: "Support AFFDI programs for clean water, education, shelter, food security, and community resilience.",
+  openGraph: {
+    title: "Donate | AFFDI",
+    description: "Support clean water, education, shelter, and food security interventions led by AFFDI.",
+    url: "/donate",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Donate | AFFDI",
+    description: "Support clean water, education, shelter, and food security interventions led by AFFDI.",
+  },
 };
 
 const impactOptions = {
@@ -33,6 +44,12 @@ const bankDetails = {
   swift: "CERBUGKA",
 };
 
+const campaignStory = [
+  "In communities across Eastern Uganda, families are still walking long distances for safe water, school continuity, and shelter support.",
+  "Your gift helps us work alongside local leaders to respond quickly where needs are highest — and to stay accountable after the first response.",
+  "Use the steps on the right to complete your donation. If payment fails, bank transfer details will appear instantly as a fallback.",
+];
+
 export default function DonatePage({ searchParams }) {
   const selectedCause = searchParams?.cause && impactOptions[searchParams.cause]
     ? searchParams.cause
@@ -46,66 +63,55 @@ export default function DonatePage({ searchParams }) {
           ← Back to home
         </Link>
 
-        <div className="mt-5 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="mt-5 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <aside className="lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)]">
+            <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="relative h-56 w-full sm:h-64">
+                <Image src="/WhatsApp Image 2026-04-05 at 1.17.08 PM (1).jpeg" alt="AFFDI community support campaign" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
+                <div className="absolute inset-0 bg-slate-900/30" />
+                <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em]">Fundraising campaign</p>
+                  <h1 className="font-display mt-2 text-3xl font-bold leading-tight">Stand with families facing crisis</h1>
+                </div>
+              </div>
+
+              <div className="flex-1 space-y-5 p-5 sm:p-6">
+                <div className="rounded-xl border border-slate-200 bg-[#eef4fb] p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Selected focus</p>
+                  <h2 className="mt-1 font-display text-xl font-semibold text-slate-900">{focus.title}</h2>
+                  <p className="mt-2 text-sm text-slate-600">{focus.note}</p>
+                </div>
+
+                <div className="space-y-3 text-sm leading-relaxed text-slate-600">
+                  {campaignStory.map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </div>
+
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+                  <p className="font-semibold text-slate-900">Need help before donating?</p>
+                  <p className="mt-1">Email <a className="font-semibold text-[#1d4f8f] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a> or call <a className="font-semibold text-[#1d4f8f] hover:underline" href="tel:+256700000000">+256 700 000 000</a>.</p>
+                </div>
+              </div>
+            </div>
+          </aside>
+
           <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-8">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Donate</p>
-            <h1 className="font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
-              Support AFFDI Community Programs
-            </h1>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Donation steps</p>
+            <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+              Complete your donation in four steps
+            </h2>
             <p className="mt-4 text-sm leading-relaxed text-slate-600">
-              Thank you for choosing to support Alliance For Fundamental Development Initiative.
-              Every contribution strengthens practical action in water access, education, shelter,
-              and household resilience.
+              The left panel stays visible while the right side advances step by step through amount, donor details, payment, and review.
             </p>
 
             <div className="mt-5 rounded-xl border border-[#d9e3ef] bg-[#eef4fb] p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Selected focus</p>
-              <h2 className="mt-1 font-display text-xl font-semibold text-slate-900">{focus.title}</h2>
-              <p className="mt-2 text-sm text-slate-600">{focus.note}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Chosen campaign</p>
+              <p className="mt-1 text-sm text-slate-600">{focus.title} — {focus.note}</p>
             </div>
 
-            <DonateForm selectedCause={selectedCause} focus={focus} />
+            <DonorWizard focus={focus} bankDetails={bankDetails} />
           </article>
-
-          <aside className="space-y-5">
-            <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-8">
-              <h2 className="font-display text-2xl font-semibold text-slate-900">How giving works</h2>
-            <ol className="mt-4 space-y-3 text-sm text-slate-600">
-              <li className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
-                <strong className="text-slate-900">1. Select your focus</strong>
-                <p className="mt-1">Choose a cause or make an unrestricted gift for highest-priority needs.</p>
-              </li>
-              <li className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
-                <strong className="text-slate-900">2. Complete the donation form</strong>
-                <p className="mt-1">Provide donor details and choose your preferred method in a standard checkout flow.</p>
-              </li>
-              <li className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
-                <strong className="text-slate-900">3. Receive confirmation</strong>
-                <p className="mt-1">A confirmation summary and next steps are presented after checkout completion.</p>
-              </li>
-            </ol>
-            </section>
-
-            <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-8">
-              <h2 className="font-display text-2xl font-semibold text-slate-900">Bank transfer details</h2>
-              <p className="mt-2 text-sm text-slate-600">For direct transfers, use the account details below and email proof of payment to <a className="font-semibold text-[#1d4f8f] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a>.</p>
-              <dl className="mt-4 grid gap-2 text-sm text-slate-700">
-                <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Bank</dt><dd>{bankDetails.bankName}</dd></div>
-                <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Account Name</dt><dd>{bankDetails.accountName}</dd></div>
-                <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Account No.</dt><dd>{bankDetails.accountNumber}</dd></div>
-                <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Branch</dt><dd>{bankDetails.branch}</dd></div>
-                <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">SWIFT</dt><dd>{bankDetails.swift}</dd></div>
-              </dl>
-            </section>
-
-            <section className="rounded-xl border border-slate-200 bg-[#eef4fb] p-4 text-sm text-slate-700">
-              <p className="font-semibold text-slate-900">Need institutional giving support?</p>
-              <p className="mt-1">Email our team for partnership and grant-aligned contribution options.</p>
-              <a href="mailto:info@affdi.org?subject=Institutional%20Giving%20-%20AFFDI" className="mt-3 inline-flex font-semibold text-[#1d4f8f] hover:underline">
-                Contact partnerships desk
-              </a>
-            </section>
-          </aside>
         </div>
       </section>
     </main>

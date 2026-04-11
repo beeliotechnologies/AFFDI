@@ -17,6 +17,16 @@ export function generateMetadata({ params }) {
   return {
     title: `${cause.title} | AFFDI Causes`,
     description: cause.description,
+    openGraph: {
+      title: `${cause.title} | AFFDI Causes`,
+      description: cause.description,
+      url: `/causes/${cause.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cause.title} | AFFDI Causes`,
+      description: cause.description,
+    },
   };
 }
 
