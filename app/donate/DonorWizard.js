@@ -28,6 +28,13 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState({});
 
+  const paymentMethodLabel =
+    paymentMethod === "card"
+      ? "Card"
+      : paymentMethod === "mobile-money"
+        ? "Mobile Money"
+        : "Bank Transfer";
+
   const status = useMemo(
     () => [
       { number: 1, title: "Amount", done: step > 1 },
@@ -279,7 +286,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
               <div><span className="font-semibold text-slate-900">Amount:</span> {currency} {formattedAmount}</div>
               <div><span className="font-semibold text-slate-900">Frequency:</span> {frequency.replace("-", " ")}</div>
               <div><span className="font-semibold text-slate-900">Focus:</span> {focus.title}</div>
-              <div><span className="font-semibold text-slate-900">Method:</span> {paymentMethod}</div>
+              <div><span className="font-semibold text-slate-900">Method:</span> {paymentMethodLabel}</div>
               <div><span className="font-semibold text-slate-900">Donor:</span> {fullName}</div>
               <div><span className="font-semibold text-slate-900">Email:</span> {email}</div>
             </div>
@@ -301,7 +308,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
                 Back
               </button>
               <button type="button" onClick={finish} className="inline-flex rounded-xl bg-[#ef8b1e] px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-[#de7f17]">
-                Complete payment
+                Continue to secure checkout
               </button>
             </div>
           </section>
