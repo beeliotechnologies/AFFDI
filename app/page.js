@@ -259,10 +259,11 @@ const engagementPaths = [
 
 export default function HomePage() {
   return (
-    <main id="main-content" className="relative min-h-screen overflow-x-clip bg-[#f8fbff] pb-24 text-slate-800 md:pb-0">
+    <main id="main-content" className="relative min-h-screen overflow-x-clip bg-[radial-gradient(140%_140%_at_50%_0%,#f6fbff_0%,#eef5ff_48%,#f8fbff_100%)] pb-24 text-slate-800 md:pb-0">
       <div className="pointer-events-none absolute inset-0 -z-0">
-        <div className="absolute -top-40 left-1/2 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-sky-200/60 blur-3xl" />
-        <div className="absolute right-0 top-[28rem] h-[30rem] w-[30rem] rounded-full bg-indigo-200/60 blur-3xl" />
+        <div className="absolute -top-44 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-sky-200/55 blur-3xl" />
+        <div className="absolute -left-16 top-[18rem] h-[22rem] w-[22rem] rounded-full bg-cyan-100/60 blur-3xl" />
+        <div className="absolute right-0 top-[28rem] h-[30rem] w-[30rem] rounded-full bg-indigo-200/55 blur-3xl" />
       </div>
 
       <SiteNav
@@ -283,7 +284,7 @@ export default function HomePage() {
 
         <section id="overview" className="mx-auto max-w-7xl px-4 pb-6 pt-12 sm:px-6 md:pt-16 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <article className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm md:p-9">
+            <article className="rounded-3xl border border-white/70 bg-white/80 p-7 shadow-[0_20px_55px_rgba(15,38,74,0.09)] backdrop-blur-sm md:p-9">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#1d4f8f]">Overview</p>
               <h2 className="font-display mb-4 text-2xl font-bold leading-tight text-slate-900 md:text-3xl">Community-first response with long-term impact</h2>
               <p className="text-slate-600">
@@ -294,7 +295,7 @@ export default function HomePage() {
               </p>
             </article>
 
-            <aside className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm md:p-9">
+            <aside className="rounded-3xl border border-white/70 bg-white/80 p-7 shadow-[0_20px_55px_rgba(15,38,74,0.09)] backdrop-blur-sm md:p-9">
               <h3 className="font-display text-lg font-semibold text-slate-900">Why partners trust AFFDI</h3>
               <ul className="mt-4 space-y-3">
                 {trustSignals.map((signal) => (
@@ -322,7 +323,7 @@ export default function HomePage() {
             title="Our Mission"
             subtitle="To promote education and health-related services for sustainable community development."
           />
-          <div className="rounded-2xl border border-slate-200 bg-[#eef4fb] p-7 text-slate-700 shadow-sm md:p-9">
+          <div className="rounded-3xl border border-[#d9e6f5] bg-gradient-to-br from-[#f4f8ff] to-[#ebf3ff] p-7 text-slate-700 shadow-[0_18px_42px_rgba(13,42,79,0.08)] md:p-9">
             <p>
               We build community resilience through water projects, safe shelter, school support,
               food assistance, and empowerment programs designed for long-term impact.
@@ -337,7 +338,7 @@ export default function HomePage() {
           />
           <div className="grid gap-4 md:grid-cols-3">
             {approach.map((item, index) => (
-              <article key={item.title} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <article key={item.title} className="rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(13,42,79,0.12)]">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">Step 0{index + 1}</p>
                 <h3 className="font-display text-lg font-semibold text-slate-900">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.detail}</p>
@@ -373,14 +374,14 @@ export default function HomePage() {
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {fieldMoments.map((moment, index) => (
-              <figure key={`${moment.src}-${index}`} className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+              <figure key={`${moment.src}-${index}`} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(13,42,79,0.12)]">
                 <div className="relative h-44 w-full">
                   <Image
                     src={moment.src}
                     alt={moment.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover"
+                    className="object-cover transition duration-500 group-hover:scale-105"
                   />
                 </div>
                 <figcaption className="space-y-1 border-t border-slate-100 p-3">
@@ -398,7 +399,7 @@ export default function HomePage() {
             subtitle="Short clips from the field — best viewed with sound on."
           />
           <div className="grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
-            <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <article className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_20px_45px_rgba(13,42,79,0.12)]">
               <video
                 className="h-72 w-full bg-slate-900 object-cover md:h-80"
                 controls
@@ -417,7 +418,7 @@ export default function HomePage() {
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               {fieldVideos.slice(1).map((video) => (
-                <article key={video.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <article key={video.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(13,42,79,0.12)]">
                   <video
                     className="h-52 w-full bg-slate-900 object-cover"
                     controls
@@ -438,7 +439,7 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-          <div className="grid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_24px_56px_rgba(13,42,79,0.14)] lg:grid-cols-[1.1fr_0.9fr]">
             <div className="relative min-h-[280px]">
               <Image
                 src={gallery[5]}
@@ -467,7 +468,7 @@ export default function HomePage() {
           />
           <div className="grid gap-4 md:grid-cols-3">
             {updates.map((item) => (
-              <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+              <article key={item.title} className="rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(13,42,79,0.12)]">
                 <p className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#1d4f8f]">
                   {item.tag}
                 </p>
@@ -485,14 +486,14 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-          <div className="rounded-2xl border border-slate-200 bg-[#eef4fb] p-6 md:p-8">
+          <div className="rounded-3xl border border-[#d9e6f5] bg-gradient-to-br from-[#f5f9ff] to-[#ebf3ff] p-6 shadow-[0_20px_44px_rgba(13,42,79,0.09)] md:p-8">
             <SectionHeading
               title="Choose How You Support"
               subtitle="Every supporter contributes differently. Pick the path that fits your capacity and impact goals."
             />
             <div className="grid gap-4 md:grid-cols-3">
               {engagementPaths.map((path, index) => (
-                <article key={path.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                <article key={path.title} className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(13,42,79,0.12)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Path 0{index + 1}</p>
                   <h3 className="font-display mt-2 text-lg font-semibold text-slate-900">{path.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-slate-600">{path.text}</p>
@@ -539,7 +540,7 @@ export default function HomePage() {
 
         <section id="volunteer" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
           <div className="grid gap-4 md:grid-cols-2">
-            <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(13,42,79,0.12)]">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Volunteer</p>
               <h3 className="font-display text-xl font-semibold text-slate-900">Join AFFDI field and support teams</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
@@ -553,7 +554,7 @@ export default function HomePage() {
               </a>
             </article>
 
-            <article id="partner" className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <article id="partner" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(13,42,79,0.12)]">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Partnerships</p>
               <h3 className="font-display text-xl font-semibold text-slate-900">Collaborate with AFFDI programs</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
@@ -570,7 +571,7 @@ export default function HomePage() {
         </section>
 
         <section id="contact" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <div className="rounded-3xl border border-slate-200/90 bg-white/90 p-6 shadow-[0_22px_52px_rgba(13,42,79,0.12)] backdrop-blur-sm md:p-8">
             <SectionHeading
               title="Contact AFFDI"
               subtitle="Reach our team directly for donations, volunteer onboarding, and program partnerships."
