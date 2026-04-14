@@ -110,8 +110,7 @@ export default function HeroBanner({
           className="max-w-3xl animate-[fadeUp_0.6s_ease_both]"
         >
           {normalizedSlides[activeIndex].eyebrow && (
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-300 backdrop-blur-sm md:mb-5 md:text-xs">
-              <span className="h-2 w-2 rounded-full bg-[#ef8b1e]" />
+            <div className="mb-4 inline-flex items-center rounded-full border border-white/25 bg-white/12 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm md:mb-5 md:text-xs">
               {normalizedSlides[activeIndex].eyebrow}
             </div>
           )}
