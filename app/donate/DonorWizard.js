@@ -8,10 +8,21 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 function normalizePhone(value) {
   const trimmed = value.replace(/[^\d+\s]/g, "");
   if (!trimmed) return "";
+  const collapsed = trimmed.replace(/\s+/g, "").replace(/\+/g, "");
+  if (!collapsed) return "";
   if (trimmed.startsWith("+")) {
-    return `+${trimmed.slice(1).replace(/\+/g, "")}`;
+    return `+${collapsed}`;
   }
-  return trimmed.replace(/\+/g, "");
+  if (collapsed.startsWith("0")) {
+    return `+256${collapsed.slice(1)}`;
+  }
+  if (collapsed.startsWith("256")) {
+    return `+${collapsed}`;
+  }
+  if (collapsed.startsWith("7") && collapsed.length === 9) {
+    return `+256${collapsed}`;
+  }
+  return `+${collapsed}`;
 }
 
 export default function DonorWizard({ selectedCause, focus, bankDetails }) {
@@ -207,7 +218,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
                 pattern="^\+?[0-9 ]{7,20}$"
                 value={phone}
                 onChange={(e) => setPhone(normalizePhone(e.target.value))}
-                placeholder="Phone number (optional)"
+                placeholder="+256 7XX XXX XXX (optional)"
                 className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm"
               />
               <input

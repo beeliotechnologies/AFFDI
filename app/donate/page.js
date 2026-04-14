@@ -99,7 +99,7 @@ export default function DonatePage({ searchParams }) {
 
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
                   <p className="font-semibold text-slate-900">Need help before donating?</p>
-                  <p className="mt-1">Email <a className="font-semibold text-[#1d4f8f] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a> or call <a className="font-semibold text-[#1d4f8f] hover:underline" href="tel:0752764415">0752764415</a>.</p>
+                  <p className="mt-1">Email <a className="font-semibold text-[#1d4f8f] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a> or call <a className="font-semibold text-[#1d4f8f] hover:underline" href="tel:+256752764415">+256 752 764 415</a>.</p>
                 </div>
               </div>
             </div>

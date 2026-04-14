@@ -270,7 +270,7 @@ export default function HomePage() {
         links={navLinks}
         donateHref="/donate"
         menuSections={navSections}
-        phone="0752764415"
+        phone="+256 752 764 415"
         email="info@affdi.org"
         learnMoreHref="#about"
       />
@@ -577,7 +577,7 @@ export default function HomePage() {
             />
             <div className="grid gap-3 text-sm text-slate-700 md:grid-cols-3">
               <a href="mailto:info@affdi.org" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">info@affdi.org</a>
-              <a href="tel:0752764415" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">0752764415</a>
+              <a href="tel:+256752764415" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">+256 752 764 415</a>
               <a href="/donate" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">Go to donation page</a>
             </div>
           </div>
@@ -589,7 +589,7 @@ export default function HomePage() {
             contact={{
               address: 'Tirinyi Town Council, Kibuku District, Uganda',
               email: 'info@affdi.org',
-              phone: '0752764415',
+              phone: '+256 752 764 415',
             }}
             copyright="© 2026 Alliance For Fundamental Development Initiative"
           />
@@ -604,7 +604,7 @@ export default function HomePage() {
           <a href="#programs" className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold text-slate-700">
             Programs
           </a>
-          <a href="tel:0752764415" className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold text-slate-700">
+          <a href="tel:+256752764415" className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold text-slate-700">
             Call Us
           </a>
         </div>
