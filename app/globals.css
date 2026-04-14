@@ -871,3 +871,13 @@ img {
     padding: 2.2rem 1rem;
   }
 }
+/* globals.css */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes partnersMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

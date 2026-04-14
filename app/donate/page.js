@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import DonorWizard from "./DonorWizard";
 
 export const metadata = {
@@ -37,11 +36,11 @@ const impactOptions = {
 };
 
 const bankDetails = {
-  bankName: "Centenary Bank Uganda",
-  accountName: "Alliance for Fundamental Development Initiative",
-  accountNumber: "012345678901",
-  branch: "Mbale Branch",
-  swift: "CERBUGKA",
+  bankName: "DFCU BANK",
+  accountName: "Alliances for Fundamental Development Initiative",
+  accountNumber: "01280015775504",
+  branch: "",
+  swift: "",
 };
 
 const campaignStory = [
@@ -67,7 +66,17 @@ export default function DonatePage({ searchParams }) {
           <aside className="lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)]">
             <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="relative h-56 w-full sm:h-64">
-                <Image src="/WhatsApp Image 2026-04-05 at 1.17.08 PM (1).jpeg" alt="AFFDI community support campaign" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
+                <video
+                  className="h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster="/WhatsApp Image 2026-04-05 at 1.17.08 PM (1).jpeg"
+                >
+                  <source src="/videos/water3.mp4" type="video/mp4" />
+                </video>
                 <div className="absolute inset-0 bg-slate-900/30" />
                 <div className="absolute inset-x-0 bottom-0 p-5 text-white">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em]">Fundraising campaign</p>
@@ -90,7 +99,7 @@ export default function DonatePage({ searchParams }) {
 
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
                   <p className="font-semibold text-slate-900">Need help before donating?</p>
-                  <p className="mt-1">Email <a className="font-semibold text-[#1d4f8f] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a> or call <a className="font-semibold text-[#1d4f8f] hover:underline" href="tel:+256700000000">+256 700 000 000</a>.</p>
+                  <p className="mt-1">Email <a className="font-semibold text-[#1d4f8f] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a> or call <a className="font-semibold text-[#1d4f8f] hover:underline" href="tel:0752764415">0752764415</a>.</p>
                 </div>
               </div>
             </div>

@@ -14,11 +14,11 @@ const impactOptions = {
 };
 
 const bankDetails = {
-  bankName: "Centenary Bank Uganda",
-  accountName: "Alliance for Fundamental Development Initiative",
-  accountNumber: "012345678901",
-  branch: "Mbale Branch",
-  swift: "CERBUGKA",
+  bankName: "DFCU BANK",
+  accountName: "Alliances for Fundamental Development Initiative",
+  accountNumber: "01280015775504",
+  branch: "",
+  swift: "",
 };
 
 const paymentMethodLabels = {

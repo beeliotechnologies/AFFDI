@@ -127,7 +127,29 @@ const fieldMoments = [
     note: 'On-site coordination for household and community assistance.',
   },
 ];
-const donateImage = gallery[11];
+
+const fieldVideos = [
+  {
+    src: '/videos/water.mp4',
+    title: 'Water Access in Action',
+    note: 'Short field clip from water-point support activities.',
+    poster: gallery[10],
+  },
+  {
+    src: '/videos/water2.mp4',
+    title: 'Community Water Session',
+    note: 'Community engagement and practical service coordination.',
+    poster: gallery[11],
+  },
+  {
+    src: '/videos/water3.mp4',
+    title: 'Household Impact Story',
+    note: 'A quick update from ongoing household support work.',
+    poster: gallery[12],
+  },
+];
+
+const donateImage = 'https://images.unsplash.com/photo-1658129850537-ea7517a9682f?q=90&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 const heroSlides = [
   {
@@ -192,18 +214,21 @@ const trustSignals = [
 
 const updates = [
   {
+    tag: 'Operations',
     title: 'Quarter 1 Community Update',
     summary: 'Water access repairs completed in priority villages, alongside ongoing household assessments and education support.',
     href: '#updates',
     label: 'Read update',
   },
   {
+    tag: 'People',
     title: 'Volunteer Intake Window',
     summary: 'AFFDI is onboarding local and remote volunteers for community outreach, documentation, and partner coordination.',
     href: '#volunteer',
     label: 'Express interest',
   },
   {
+    tag: 'Partnership',
     title: 'Partner Collaboration Brief',
     summary: 'New collaboration brief available for organizations interested in supporting WASH, education, and resilience programs.',
     href: '#partner',
@@ -245,7 +270,7 @@ export default function HomePage() {
         links={navLinks}
         donateHref="/donate"
         menuSections={navSections}
-        phone="+256 700 000 000"
+        phone="0752764415"
         email="info@affdi.org"
         learnMoreHref="#about"
       />
@@ -368,6 +393,51 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
+          <SectionHeading
+            title="Field Videos"
+            subtitle="Short clips from the field — best viewed with sound on."
+          />
+          <div className="grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
+            <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <video
+                className="h-72 w-full bg-slate-900 object-cover md:h-80"
+                controls
+                playsInline
+                preload="metadata"
+                poster={fieldVideos[0].poster}
+              >
+                <source src={fieldVideos[0].src} type="video/mp4" />
+              </video>
+              <div className="space-y-2 border-t border-slate-100 p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Featured clip</p>
+                <p className="text-base font-semibold text-slate-900">{fieldVideos[0].title}</p>
+                <p className="text-sm leading-relaxed text-slate-600">{fieldVideos[0].note}</p>
+              </div>
+            </article>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              {fieldVideos.slice(1).map((video) => (
+                <article key={video.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                  <video
+                    className="h-52 w-full bg-slate-900 object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={video.poster}
+                  >
+                    <source src={video.src} type="video/mp4" />
+                  </video>
+                  <div className="space-y-1 border-t border-slate-100 p-3">
+                    <p className="text-sm font-semibold text-slate-900">{video.title}</p>
+                    <p className="text-xs leading-relaxed text-slate-600">{video.note}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
           <div className="grid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-[1.1fr_0.9fr]">
             <div className="relative min-h-[280px]">
               <Image
@@ -397,14 +467,17 @@ export default function HomePage() {
           />
           <div className="grid gap-4 md:grid-cols-3">
             {updates.map((item) => (
-              <article key={item.title} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <h3 className="font-display text-base font-semibold text-slate-900">{item.title}</h3>
+              <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                <p className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#1d4f8f]">
+                  {item.tag}
+                </p>
+                <h3 className="font-display mt-3 text-lg font-semibold text-slate-900">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.summary}</p>
                 <a
                   href={item.href}
-                  className="mt-4 inline-flex text-sm font-semibold text-[#1d4f8f] hover:underline"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#1d4f8f] hover:underline"
                 >
-                  {item.label}
+                  {item.label} <span aria-hidden>→</span>
                 </a>
               </article>
             ))}
@@ -418,13 +491,14 @@ export default function HomePage() {
               subtitle="Every supporter contributes differently. Pick the path that fits your capacity and impact goals."
             />
             <div className="grid gap-4 md:grid-cols-3">
-              {engagementPaths.map((path) => (
-                <article key={path.title} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                  <h3 className="font-display text-base font-semibold text-slate-900">{path.title}</h3>
+              {engagementPaths.map((path, index) => (
+                <article key={path.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Path 0{index + 1}</p>
+                  <h3 className="font-display mt-2 text-lg font-semibold text-slate-900">{path.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-slate-600">{path.text}</p>
                   <a
                     href={path.href}
-                    className="mt-4 inline-flex rounded-lg bg-[#1d4f8f] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#123a6a]"
+                    className="mt-5 inline-flex rounded-lg bg-[#1d4f8f] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#123a6a]"
                   >
                     {path.cta}
                   </a>
@@ -452,14 +526,14 @@ export default function HomePage() {
 
         <DonateBanner
           id="donate"
-          title="Support Our Causes, Donate Any Amount Today"
+          title="Give Today to Protect Water, Learning, and Family Wellbeing"
           points={[
-            'Support clean water projects and boreholes.',
-            'Support schools, shelter, and household assistance.',
-            'Support food packages and community resilience.',
+            'Restore and protect safe water access in underserved communities.',
+            'Keep children in safer learning spaces with school and shelter support.',
+            'Strengthen vulnerable households with food and resilience assistance.',
           ]}
           actionHref="/donate"
-          actionLabel="Donate Now"
+          actionLabel="Continue to Donation Form"
           image={donateImage}
         />
 
@@ -503,7 +577,7 @@ export default function HomePage() {
             />
             <div className="grid gap-3 text-sm text-slate-700 md:grid-cols-3">
               <a href="mailto:info@affdi.org" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">info@affdi.org</a>
-              <a href="tel:+256700000000" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">+256 700 000 000</a>
+              <a href="tel:0752764415" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">0752764415</a>
               <a href="/donate" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">Go to donation page</a>
             </div>
           </div>
@@ -515,7 +589,7 @@ export default function HomePage() {
             contact={{
               address: 'Tirinyi Town Council, Kibuku District, Uganda',
               email: 'info@affdi.org',
-              phone: '+256 700 000 000',
+              phone: '0752764415',
             }}
             copyright="© 2026 Alliance For Fundamental Development Initiative"
           />
@@ -530,7 +604,7 @@ export default function HomePage() {
           <a href="#programs" className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold text-slate-700">
             Programs
           </a>
-          <a href="tel:+256700000000" className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold text-slate-700">
+          <a href="tel:0752764415" className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold text-slate-700">
             Call Us
           </a>
         </div>
