@@ -116,7 +116,7 @@ const gallery = [
   '/WhatsApp%20Image%202026-04-05%20at%201.17.11%20PM%20%281%29.jpeg',
   '/WhatsApp%20Image%202026-04-05%20at%201.17.11%20PM.jpeg',
   '/SchoolOutreachActivity.webp',
-  '/WhatsApp%20Image%202026-04-05%20at%201.17.12%20PM.jpeg',
+  '/see.jpg',
 ];
 
 const heroImages = [
