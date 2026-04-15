@@ -134,7 +134,7 @@ export const programs = [
     timeframe: 'Ongoing community track',
     location: 'Kibuku sub-counties',
     result: 'Local leaders equipped for self-led progress.',
-    image: '/public/WhatsApp Image 2026-04-05 at 1.16.53 PM.jpeg',
+    image: '/community.jpeg',
     href: '/programs/community-empowerment',
     overview:
       'Community empowerment supports local ownership through practical capability-building and collaborative planning.',
