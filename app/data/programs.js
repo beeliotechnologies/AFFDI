@@ -34,7 +34,7 @@ export const programs = [
     timeframe: 'Rolling support',
     location: 'Tirinyi & nearby communities',
     result: 'Safe, weather-resilient homes for high-risk families.',
-    image: '/WhatsApp%20Image%202026-04-05%20at%201.16.53%20PM%20%281%29.jpeg',
+    image: '/WhatsApp Image 2026-04-05 at 1.17.06 PM.jpeg',
     href: '/programs/shelter-support',
     overview:
       'Our shelter program addresses critical household risk by supporting durable housing improvements and protection-oriented recovery planning.',
@@ -59,7 +59,7 @@ export const programs = [
     timeframe: 'Academic-year aligned',
     location: 'Community schools in Kibuku',
     result: 'Improved attendance and safer learning spaces.',
-    image: '/WhatsApp%20Image%202026-04-05%20at%201.16.53%20PM.jpeg',
+    image: '/happykids.png',
     href: '/programs/education-school-infrastructure',
     overview:
       'AFFDI supports safer and more effective school environments through practical facility improvements and learner-centered support.',
@@ -109,7 +109,7 @@ export const programs = [
     timeframe: 'Seasonal response windows',
     location: 'Priority food-insecure communities',
     result: 'Stabilized food access during lean periods.',
-    image: '/WhatsApp%20Image%202026-04-05%20at%201.17.07%20PM%20%282%29.jpeg',
+    image: '/WhatsApp Image 2026-04-05 at 1.17.10 PM.jpeg',
     href: '/programs/food-security',
     overview:
       'AFFDI food security interventions protect families during seasonal shortages and support continuity for children.',
@@ -134,7 +134,7 @@ export const programs = [
     timeframe: 'Ongoing community track',
     location: 'Kibuku sub-counties',
     result: 'Local leaders equipped for self-led progress.',
-    image: '/WhatsApp%20Image%202026-04-05%20at%201.17.08%20PM%20%281%29.jpeg',
+    image: '/public/WhatsApp Image 2026-04-05 at 1.16.53 PM.jpeg',
     href: '/programs/community-empowerment',
     overview:
       'Community empowerment supports local ownership through practical capability-building and collaborative planning.',
