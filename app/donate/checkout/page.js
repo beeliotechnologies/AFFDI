@@ -1,5 +1,65 @@
 import Link from "next/link";
 import CheckoutCardFields from "./CheckoutCardFields";
+import SiteNav from "../../components/SiteNav";
+import SiteFooter from "../../components/SiteFooter";
+
+const brand = {
+  name: "AFFDI",
+  mark: "AF",
+  tagline: "Alliances for Fundamental Development Initiative",
+};
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Impact", href: "/#impact" },
+  { label: "Our Work", href: "/#programs" },
+  {
+    label: "About Us",
+    href: "/about-us/who-we-are",
+    items: [
+      { label: "Who We Are", href: "/about-us/who-we-are" },
+      { label: "History", href: "/about-us/history" },
+      { label: "Mission, Vision & Values", href: "/about-us/mission-vision-and-values" },
+      { label: "Founder", href: "/about-us/founder" },
+    ],
+  },
+  {
+    label: "Get Involved",
+    href: "#get-involved",
+    items: [
+      { label: "Donate", href: "/donate" },
+      { label: "Volunteer", href: "/volunteer" },
+      { label: "Join Our Team", href: "/join-our-team" },
+      { label: "Partner With Us", href: "/partner-with-us" },
+    ],
+  },
+  { label: "Contact", href: "/#contact" },
+];
+
+const navSections = [
+  {
+    id: "about-us",
+    label: "About Us",
+    title: "About Us at AFFDI",
+    items: [
+      { label: "Who We Are", href: "/about-us/who-we-are" },
+      { label: "History", href: "/about-us/history" },
+      { label: "Mission, Vision & Values", href: "/about-us/mission-vision-and-values" },
+      { label: "Founder", href: "/about-us/founder" },
+    ],
+  },
+  {
+    id: "get-involved",
+    label: "Get Involved",
+    title: "Get Involved",
+    items: [
+      { label: "Donate", href: "/donate" },
+      { label: "Volunteer", href: "/volunteer" },
+      { label: "Join Our Team", href: "/join-our-team" },
+      { label: "Partner With Us", href: "/partner-with-us" },
+    ],
+  },
+];
 
 export const metadata = {
   title: "Checkout | AFFDI",
@@ -29,6 +89,29 @@ const paymentMethodLabels = {
 
 const getParam = (value, fallback = "") => (Array.isArray(value) ? value[0] : (value ?? fallback));
 
+const footerLinks = [
+  { label: "Home", href: "/" },
+  { label: "Impact", href: "/#impact" },
+  { label: "Our Work", href: "/#programs" },
+  { label: "Who We Are", href: "/about-us/who-we-are" },
+  { label: "History", href: "/about-us/history" },
+  { label: "Mission, Vision & Values", href: "/about-us/mission-vision-and-values" },
+  { label: "Founder", href: "/about-us/founder" },
+  { label: "Donate", href: "/donate" },
+  { label: "Volunteer", href: "/volunteer" },
+  { label: "Join Our Team", href: "/join-our-team" },
+  { label: "Partner With Us", href: "/partner-with-us" },
+  { label: "Contact", href: "/#contact" },
+];
+
+const footerContact = {
+  address: "Kibuku District, Eastern Uganda",
+  email: "info@affdi.org",
+  phone: "+256 752 764 415",
+};
+
+const footerCopyright = `© ${new Date().getFullYear()} AFFDI. All rights reserved.`;
+
 export default function CheckoutPage({ searchParams }) {
   const amount = getParam(searchParams?.amount, "50");
   const currency = getParam(searchParams?.currency, "USD");
@@ -46,6 +129,17 @@ export default function CheckoutPage({ searchParams }) {
 
   return (
     <main id="main-content" className="min-h-screen bg-[#f8fbff] text-slate-800">
+      <SiteNav
+        brand={brand}
+        links={navLinks}
+        donateHref="/donate"
+        primaryActionLabel="Get Involved"
+        menuSections={navSections}
+        phone="0752764415"
+        email="info@affdi.org"
+        learnMoreHref="/about-us/who-we-are"
+      />
+
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
         <Link href="/donate" className="text-sm font-semibold text-[#1d4f8f] hover:underline">
           ← Back to donate page
@@ -113,6 +207,10 @@ export default function CheckoutPage({ searchParams }) {
             </aside>
           </div>
         </article>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
+        <SiteFooter links={footerLinks} contact={footerContact} copyright={footerCopyright} />
       </section>
     </main>
   );

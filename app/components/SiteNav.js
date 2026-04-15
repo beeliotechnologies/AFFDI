@@ -7,6 +7,7 @@ export default function SiteNav({
   brand,
   links = [],
   donateHref = "/donate",
+  primaryActionLabel = "Get Involved",
   menuSections = [],
   phone,
   email,
@@ -101,9 +102,29 @@ export default function SiteNav({
 
           <nav className="ml-3 hidden items-center gap-6 text-sm text-slate-700 md:flex" aria-label="Primary navigation">
             {links.map((link) => (
-              <Link key={link.label} href={link.href} className="transition hover:text-[#1d4f8f]">
-                {link.label}
-              </Link>
+              Array.isArray(link.items) && link.items.length > 0 ? (
+                <div key={link.label} className="group relative">
+                  <Link href={link.href} className="inline-flex items-center gap-1 transition hover:text-[#1d4f8f]">
+                    {link.label}
+                    <span aria-hidden className="text-xs">▾</span>
+                  </Link>
+                  <div className="invisible absolute left-0 top-full z-50 mt-2 w-64 translate-y-1 rounded-xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                    {link.items.map((item) => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className="block rounded-lg px-3 py-2 text-sm text-slate-700 transition hover:bg-[#eef4fb] hover:text-[#1d4f8f]"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link key={link.label} href={link.href} className="transition hover:text-[#1d4f8f]">
+                  {link.label}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -112,7 +133,7 @@ export default function SiteNav({
               href={donateHref}
               className="inline-flex items-center rounded-xl bg-[#ef8b1e] px-3 py-2 text-sm font-bold text-slate-900 transition hover:bg-[#de7f17] sm:px-4"
             >
-              Donate
+              {primaryActionLabel}
             </Link>
           </div>
         </div>
@@ -167,7 +188,7 @@ export default function SiteNav({
 
             <div className="mt-6 grid gap-2">
               <Link href={donateHref} onClick={close} className="rounded-xl bg-[#ef8b1e] px-4 py-2 text-center text-sm font-bold text-slate-900">
-                Donate
+                {primaryActionLabel}
               </Link>
               <Link href={learnMoreHref} onClick={close} className="rounded-xl border border-slate-300 px-4 py-2 text-center text-sm font-semibold text-slate-700">
                 Learn More

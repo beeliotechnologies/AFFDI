@@ -16,21 +16,39 @@ const navLinks = [
   { label: 'Home', href: '#main-content' },
   { label: 'Impact', href: '#impact' },
   { label: 'Our Work', href: '#programs' },
-  { label: 'Who We Are', href: '#about' },
-  { label: 'How You Can Support', href: '/donate' },
+  {
+    label: 'About Us',
+    href: '/about-us/who-we-are',
+    items: [
+      { label: 'Who We Are', href: '/about-us/who-we-are' },
+      { label: 'History', href: '/about-us/history' },
+      { label: 'Mission, Vision & Values', href: '/about-us/mission-vision-and-values' },
+      { label: 'Founder', href: '/about-us/founder' },
+    ],
+  },
+  {
+    label: 'Get Involved',
+    href: '#get-involved',
+    items: [
+      { label: 'Donate', href: '/donate' },
+      { label: 'Volunteer', href: '/volunteer' },
+      { label: 'Join Our Team', href: '/join-our-team' },
+      { label: 'Partner With Us', href: '/partner-with-us' },
+    ],
+  },
   { label: 'Contact', href: '#contact' },
 ];
 
 const navSections = [
   {
-    id: 'who-we-are',
-    label: 'Who We Are',
-    title: 'About AFFDI',
+    id: 'about-us',
+    label: 'About Us',
+    title: 'About Us at AFFDI',
     items: [
-      { label: 'About Us', href: '#about' },
-      { label: 'Our Mission', href: '#about' },
-      { label: 'Our Strategy', href: '#programs' },
-      { label: 'Our Accountability', href: '#updates' },
+      { label: 'Who We Are', href: '/about-us/who-we-are' },
+      { label: 'History', href: '/about-us/history' },
+      { label: 'Mission, Vision & Values', href: '/about-us/mission-vision-and-values' },
+      { label: 'Founder', href: '/about-us/founder' },
     ],
   },
   {
@@ -55,13 +73,14 @@ const navSections = [
     ],
   },
   {
-    id: 'ways-to-give',
-    label: 'Ways To Give',
-    title: 'Support AFFDI',
+    id: 'get-involved',
+    label: 'Get Involved',
+    title: 'Get Involved',
     items: [
-      { label: 'Donate Now', href: '/donate' },
-      { label: 'Partner With Us', href: '#partner' },
-      { label: 'Volunteer Interest', href: '#volunteer' },
+      { label: 'Donate', href: '/donate' },
+      { label: 'Volunteer', href: '/volunteer' },
+      { label: 'Join Our Team', href: '/join-our-team' },
+      { label: 'Partner With Us', href: '/partner-with-us' },
     ],
   },
   {
@@ -173,14 +192,14 @@ const heroSlides = [
     highlights: ['Women & Children First', 'School-Centered Support', 'Long-Term Outcomes'],
   },
   {
-    eyebrow: 'Support Vulnerable Families',
-    title: 'Your Donation Creates Real Impact',
+    eyebrow: 'Impact For Vulnerable Families',
+    title: 'See Measurable Progress Across Water, Schools, and Households',
     description:
-      'Your contribution directly supports food support cycles, child learning continuity, and household essentials for widows, orphans, and high-risk families.',
+      'Follow AFFDI outcomes from safer water access and stronger school environments to practical household resilience in high-risk communities.',
     backgroundImage: heroImages[2],
-    actionHref: '#donate',
-    actionLabel: 'Donate Today',
-    highlights: ['Monthly Giving', 'Field Monitoring', 'Direct Household Support'],
+    actionHref: '#impact',
+    actionLabel: 'View Impact Areas',
+    highlights: ['Field Monitoring', 'Outcome Tracking', 'Community Resilience'],
   },
 ];
 
@@ -246,13 +265,13 @@ const engagementPaths = [
   {
     title: 'Volunteer Your Skills',
     text: 'Support communication, field coordination, and learning documentation with the AFFDI team.',
-    href: '#volunteer',
+    href: '/volunteer',
     cta: 'Join as volunteer',
   },
   {
     title: 'Partner Institutionally',
     text: 'Collaborate on program design, co-funding, and long-term development initiatives in Eastern Uganda.',
-    href: '#partner',
+    href: '/partner-with-us',
     cta: 'Start a partnership',
   },
 ];
@@ -269,11 +288,12 @@ export default function HomePage() {
       <SiteNav
         brand={{ mark: 'AF', name: 'AFFDI', tagline: 'Improving Community Resilience' }}
         links={navLinks}
-        donateHref="/donate"
+        donateHref="#get-involved"
+        primaryActionLabel="Get Involved"
         menuSections={navSections}
         phone="+256 752 764 415"
         email="info@affdi.org"
-        learnMoreHref="#about"
+        learnMoreHref="/about-us/who-we-are"
       />
 
       <div className="relative z-10">
@@ -331,7 +351,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
+        <section id="how-we-work" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
           <SectionHeading
             title="How We Work"
             subtitle="A field-tested approach designed for dignity, ownership, and measurable progress."
@@ -485,11 +505,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
+        <section id="get-involved" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
           <div className="rounded-3xl border border-[#d9e6f5] bg-gradient-to-br from-[#f5f9ff] to-[#ebf3ff] p-6 shadow-[0_20px_44px_rgba(13,42,79,0.09)] md:p-8">
             <SectionHeading
-              title="Choose How You Support"
-              subtitle="Every supporter contributes differently. Pick the path that fits your capacity and impact goals."
+              title="Get Involved"
+              subtitle="Contribute your time, expertise, partnerships, or resources to accelerate measurable outcomes in the communities we serve."
             />
             <div className="grid gap-4 md:grid-cols-3">
               {engagementPaths.map((path, index) => (
@@ -527,22 +547,23 @@ export default function HomePage() {
 
         <DonateBanner
           id="donate"
+          eyebrow="Impact Priorities"
           title="Give Today to Protect Water, Learning, and Family Wellbeing"
           points={[
             'Restore and protect safe water access in underserved communities.',
             'Keep children in safer learning spaces with school and shelter support.',
             'Strengthen vulnerable households with food and resilience assistance.',
           ]}
-          actionHref="/donate"
-          actionLabel="Continue to Donation Form"
+          actionHref="#get-involved"
+          actionLabel="Explore Involvement Paths"
           image={donateImage}
         />
 
         <section id="volunteer" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
           <div className="grid gap-4 md:grid-cols-2">
-            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(13,42,79,0.12)]">
+            <article id="join-team" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(13,42,79,0.12)]">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Volunteer</p>
-              <h3 className="font-display text-xl font-semibold text-slate-900">Join AFFDI field and support teams</h3>
+              <h3 className="font-display text-xl font-semibold text-slate-900">Join AFFDI field and impact teams</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
                 Help with outreach, documentation, logistics, and community coordination. We welcome local and remote volunteers.
               </p>
@@ -574,12 +595,12 @@ export default function HomePage() {
           <div className="rounded-3xl border border-slate-200/90 bg-white/90 p-6 shadow-[0_22px_52px_rgba(13,42,79,0.12)] backdrop-blur-sm md:p-8">
             <SectionHeading
               title="Contact AFFDI"
-              subtitle="Reach our team directly for donations, volunteer onboarding, and program partnerships."
+              subtitle="Reach our team directly for impact updates, volunteer onboarding, and program partnerships."
             />
             <div className="grid gap-3 text-sm text-slate-700 md:grid-cols-3">
               <a href="mailto:info@affdi.org" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">info@affdi.org</a>
               <a href="tel:+256752764415" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">+256 752 764 415</a>
-              <a href="/donate" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">Go to donation page</a>
+              <a href="#get-involved" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">View involvement options</a>
             </div>
           </div>
         </section>
@@ -599,8 +620,8 @@ export default function HomePage() {
 
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 px-4 py-3 shadow-[0_-10px_30px_rgba(13,42,79,0.08)] backdrop-blur md:hidden">
         <div className="mx-auto grid max-w-7xl grid-cols-3 gap-2">
-          <a href="/donate" className="inline-flex items-center justify-center rounded-xl bg-[#ef8b1e] px-3 py-3 text-center text-xs font-bold text-slate-900">
-            Donate
+          <a href="#get-involved" className="inline-flex items-center justify-center rounded-xl bg-[#ef8b1e] px-3 py-3 text-center text-xs font-bold text-slate-900">
+            Get Involved
           </a>
           <a href="#programs" className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold text-slate-700">
             Programs

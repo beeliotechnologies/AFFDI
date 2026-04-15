@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 const DEFAULTS = {
+  eyebrow: "Impact Priorities",
   title: "Your support changes lives",
   points: [
     "Fund emergency food assistance for vulnerable families",
@@ -14,6 +15,7 @@ const DEFAULTS = {
 
 export default function DonateBanner({
   id,
+  eyebrow = DEFAULTS.eyebrow,
   title = DEFAULTS.title,
   points = DEFAULTS.points,
   actionHref = DEFAULTS.actionHref,
@@ -48,10 +50,7 @@ export default function DonateBanner({
       {/* Content */}
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
         <div className="max-w-3xl rounded-2xl border border-white/60 bg-white/95 p-5 shadow-[0_18px_40px_rgba(13,42,79,0.14)] backdrop-blur-sm sm:p-6 md:p-9">
-
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#1d4f8f]">
-            Support AFFDI
-          </p>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#1d4f8f]">{eyebrow}</p>
 
           <h2 className="font-display text-xl font-bold leading-tight text-slate-900 sm:text-2xl md:text-3xl">
             {title}
