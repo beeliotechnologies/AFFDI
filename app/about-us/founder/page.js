@@ -170,7 +170,7 @@ const legacyCommitments = [
 
 export default function FounderPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white text-slate-800">
+    <main className="min-h-screen bg-transparent text-slate-800">
       <SiteNav
         brand={brand}
         links={navLinks}
@@ -198,7 +198,7 @@ export default function FounderPage() {
           <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
             "We created AFFDI to bridge urgent needs and long-term resilience. Our approach is simple: listen deeply, act collaboratively, and remain accountable for results. Every intervention should strengthen local capability and restore dignity to families navigating difficult conditions."
           </p>
-          <p className="mt-4 text-sm font-semibold text-[#1d4f8f]">— AFFDI Founding Leadership</p>
+          <p className="mt-4 text-sm font-semibold text-[#090E58]">— AFFDI Founding Leadership</p>
         </article>
 
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-8">
@@ -206,7 +206,7 @@ export default function FounderPage() {
           <div className="mt-5 space-y-4">
             {founderJourney.map((item) => (
               <article key={item.stage} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">{item.stage}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#090E58]">{item.stage}</p>
                 <h3 className="mt-1 text-base font-semibold text-slate-900">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.text}</p>
               </article>
@@ -217,7 +217,7 @@ export default function FounderPage() {
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {leadershipPrinciples.map((item) => (
             <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#eef4fb] text-[#1d4f8f]">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#EEF0FF] text-[#090E58]">
                 <item.icon className="h-5 w-5" aria-hidden="true" />
               </div>
               <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
@@ -231,7 +231,7 @@ export default function FounderPage() {
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {legacyCommitments.map((item) => (
               <article key={item.title} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-md bg-[#eef4fb] text-[#1d4f8f]">
+                <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-md bg-[#EEF0FF] text-[#090E58]">
                   <item.icon className="h-4 w-4" aria-hidden="true" />
                 </div>
                 <h3 className="text-sm font-semibold text-slate-900">{item.title}</h3>

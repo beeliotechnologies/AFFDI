@@ -106,7 +106,7 @@ export const metadata = {
 
 export default function WhatWeDoPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white text-slate-800">
+    <main className="min-h-screen bg-transparent text-slate-800">
       <SiteNav
         brand={brand}
         links={navLinks}
@@ -132,10 +132,10 @@ export default function WhatWeDoPage() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map((service) => (
             <article key={service.slug} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#eef4fb] text-[#1d4f8f]">
+              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#EEF0FF] text-[#090E58]">
                 <HeartPulse className="h-5 w-5" aria-hidden="true" />
               </div>
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">{service.focus}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#090E58]">{service.focus}</p>
               <h2 className="mt-1 text-xl font-semibold text-slate-900">{service.title}</h2>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.description}</p>
               <div className="mt-4 space-y-1 text-xs text-slate-500">
@@ -143,7 +143,7 @@ export default function WhatWeDoPage() {
                 <p><span className="font-semibold">Beneficiaries:</span> {service.beneficiaries}</p>
                 <p><span className="font-semibold">Location:</span> {service.location}</p>
               </div>
-              <Link href={service.href} className="mt-5 inline-flex items-center text-sm font-semibold text-[#1d4f8f] hover:underline">
+              <Link href={service.href} className="mt-5 inline-flex items-center text-sm font-semibold text-[#090E58] hover:underline">
                 View service
                 <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
               </Link>

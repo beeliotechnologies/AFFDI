@@ -161,7 +161,7 @@ const missionHeroImage =
 
 export default function MissionVisionValuesPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white text-slate-800">
+    <main className="min-h-screen bg-transparent text-slate-800">
       <SiteNav
         brand={brand}
         links={navLinks}
@@ -196,7 +196,7 @@ export default function MissionVisionValuesPage() {
 
       <section className="mx-auto grid max-w-5xl gap-6 px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-2 md:px-8 md:py-20">
         <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-7">
-          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#eef4fb] text-[#1d4f8f]">
+          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#EEF0FF] text-[#090E58]">
             <Compass className="h-5 w-5" aria-hidden="true" />
           </div>
           <h2 className="text-2xl font-semibold text-slate-900">Mission</h2>
@@ -206,7 +206,7 @@ export default function MissionVisionValuesPage() {
         </article>
 
         <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-7">
-          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#eef4fb] text-[#1d4f8f]">
+          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#EEF0FF] text-[#090E58]">
             <Eye className="h-5 w-5" aria-hidden="true" />
           </div>
           <h2 className="text-2xl font-semibold text-slate-900">Vision</h2>
@@ -216,7 +216,7 @@ export default function MissionVisionValuesPage() {
         </article>
 
         <article className="md:col-span-2 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-7">
-          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#eef4fb] text-[#1d4f8f]">
+          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#EEF0FF] text-[#090E58]">
             <Gem className="h-5 w-5" aria-hidden="true" />
           </div>
           <h2 className="text-2xl font-semibold text-slate-900">Core Values</h2>
@@ -234,7 +234,7 @@ export default function MissionVisionValuesPage() {
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {strategicPriorities.map((item) => (
               <div key={item.title} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-md bg-[#eef4fb] text-[#1d4f8f]">
+                <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-md bg-[#EEF0FF] text-[#090E58]">
                   <item.icon className="h-4 w-4" aria-hidden="true" />
                 </div>
                 <h3 className="text-sm font-semibold text-slate-900">{item.title}</h3>

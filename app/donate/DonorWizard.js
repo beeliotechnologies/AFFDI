@@ -113,9 +113,9 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
               key={item.number}
               className={`flex items-center gap-2 rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] ${
                 step === item.number
-                  ? "bg-[#1d4f8f] text-white"
+                  ? "bg-[#090E58] text-white"
                   : item.done
-                    ? "bg-[#eef4fb] text-[#123a6a]"
+                    ? "bg-[#EEF0FF] text-[#06093F]"
                     : "bg-slate-100 text-slate-500"
               }`}
             >
@@ -132,7 +132,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
         {step === 1 ? (
           <section className="space-y-5">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Step 1 of 4</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#090E58]">Step 1 of 4</p>
               <h2 className="mt-1 font-display text-2xl font-semibold text-slate-900">Enter your donation amount</h2>
               <p className="mt-2 text-sm text-slate-600">Choose how much you want to give and the frequency that works for you.</p>
             </div>
@@ -175,7 +175,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
             {errors.amount ? <p className="text-xs text-red-600">{errors.amount}</p> : null}
 
             <div className="flex justify-end">
-              <button type="button" onClick={next} className="inline-flex rounded-xl bg-[#ef8b1e] px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-[#de7f17]">
+              <button type="button" onClick={next} className="inline-flex rounded-xl bg-[#E5A223] px-6 py-3 text-sm font-bold text-[#090E58] transition hover:bg-[#C98C1D]">
                 Continue
               </button>
             </div>
@@ -185,7 +185,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
         {step === 2 ? (
           <section className="space-y-5">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Step 2 of 4</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#090E58]">Step 2 of 4</p>
               <h2 className="mt-1 font-display text-2xl font-semibold text-slate-900">Tell us about you</h2>
               <p className="mt-2 text-sm text-slate-600">We’ll use these details to issue your donation confirmation and follow up if needed.</p>
             </div>
@@ -238,7 +238,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
               <button type="button" onClick={back} className="inline-flex rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
                 Back
               </button>
-              <button type="button" onClick={next} className="inline-flex rounded-xl bg-[#ef8b1e] px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-[#de7f17]">
+              <button type="button" onClick={next} className="inline-flex rounded-xl bg-[#E5A223] px-6 py-3 text-sm font-bold text-[#090E58] transition hover:bg-[#C98C1D]">
                 Continue
               </button>
             </div>
@@ -248,7 +248,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
         {step === 3 ? (
           <section className="space-y-5">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Step 3 of 4</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#090E58]">Step 3 of 4</p>
               <h2 className="mt-1 font-display text-2xl font-semibold text-slate-900">Choose payment method</h2>
               <p className="mt-2 text-sm text-slate-600">Select how you want to complete the donation.</p>
             </div>
@@ -278,7 +278,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
               <button type="button" onClick={back} className="inline-flex rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
                 Back
               </button>
-              <button type="button" onClick={next} className="inline-flex rounded-xl bg-[#ef8b1e] px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-[#de7f17]">
+              <button type="button" onClick={next} className="inline-flex rounded-xl bg-[#E5A223] px-6 py-3 text-sm font-bold text-[#090E58] transition hover:bg-[#C98C1D]">
                 Review donation
               </button>
             </div>
@@ -288,7 +288,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
         {step === 4 ? (
           <section className="space-y-5">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Step 4 of 4</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#090E58]">Step 4 of 4</p>
               <h2 className="mt-1 font-display text-2xl font-semibold text-slate-900">Review and pay</h2>
               <p className="mt-2 text-sm text-slate-600">You are about to continue to secure checkout with the following donation details.</p>
             </div>
@@ -303,7 +303,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
             </div>
 
             {bankDetails ? (
-              <div className="rounded-xl border border-slate-200 bg-[#eef4fb] p-4 text-sm text-slate-700">
+              <div className="rounded-xl border border-slate-200 bg-[#EEF0FF] p-4 text-sm text-slate-700">
                 <p className="font-semibold text-slate-900">If card payment fails at checkout</p>
                 <p className="mt-1">Bank transfer details will be shown automatically. You can also use these details directly:</p>
                 <dl className="mt-3 grid gap-2 text-sm">
@@ -318,7 +318,7 @@ export default function DonorWizard({ selectedCause, focus, bankDetails }) {
               <button type="button" onClick={back} className="inline-flex rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
                 Back
               </button>
-              <button type="button" onClick={finish} className="inline-flex rounded-xl bg-[#ef8b1e] px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-[#de7f17]">
+              <button type="button" onClick={finish} className="inline-flex rounded-xl bg-[#E5A223] px-6 py-3 text-sm font-bold text-[#090E58] transition hover:bg-[#C98C1D]">
                 Continue to secure checkout
               </button>
             </div>

@@ -68,7 +68,7 @@ function PartnerCard({ partner }) {
         href={partner.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4f8f] focus-visible:ring-offset-2 rounded-xl"
+        className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#090E58] focus-visible:ring-offset-2 rounded-xl"
         aria-label={`Visit ${partner.name}`}
       >
         {content}

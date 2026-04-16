@@ -207,7 +207,7 @@ const partnerHeroImage =
 
 export default function PartnerWithUsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+    <main className="min-h-screen bg-transparent">
       <SiteNav
         brand={brand}
         links={navLinks}
@@ -278,7 +278,7 @@ export default function PartnerWithUsPage() {
           <div className="grid md:grid-cols-2 gap-6">
             {whyPartner.map((item, idx) => (
               <div key={idx} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#eef4fb] text-[#1d4f8f]">
+                <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#EEF0FF] text-[#090E58]">
                   <item.icon className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <h3 className="font-bold text-lg text-slate-900 mb-2">{item.title}</h3>

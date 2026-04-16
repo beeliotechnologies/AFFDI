@@ -287,11 +287,11 @@ const engagementPaths = [
 
 export default function HomePage() {
   return (
-    <main id="main-content" className="relative min-h-screen overflow-x-clip bg-[radial-gradient(140%_140%_at_50%_0%,#f6fbff_0%,#eef5ff_48%,#f8fbff_100%)] pb-24 text-slate-800 md:pb-0">
+    <main id="main-content" className="relative min-h-screen overflow-x-clip bg-transparent pb-24 text-slate-800 md:pb-0">
       <div className="pointer-events-none absolute inset-0 -z-0">
-        <div className="absolute -top-44 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-sky-200/55 blur-3xl" />
-        <div className="absolute -left-16 top-[18rem] h-[22rem] w-[22rem] rounded-full bg-cyan-100/60 blur-3xl" />
-        <div className="absolute right-0 top-[28rem] h-[30rem] w-[30rem] rounded-full bg-indigo-200/55 blur-3xl" />
+        <div className="absolute -top-44 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-[#090E58]/20 blur-3xl" />
+        <div className="absolute -left-16 top-[18rem] h-[22rem] w-[22rem] rounded-full bg-[#E5A223]/18 blur-3xl" />
+        <div className="absolute right-0 top-[28rem] h-[30rem] w-[30rem] rounded-full bg-[#06093F]/20 blur-3xl" />
       </div>
 
       <SiteNav
@@ -352,7 +352,7 @@ export default function HomePage() {
             title="Our Mission"
             subtitle="To promote education and health-related services for sustainable community development."
           />
-          <div className="rounded-3xl border border-[#d9e6f5] bg-gradient-to-br from-[#f4f8ff] to-[#ebf3ff] p-7 text-slate-700 shadow-[0_18px_42px_rgba(13,42,79,0.08)] md:p-9">
+          <div className="rounded-3xl border border-[#D6D9E6] bg-gradient-to-br from-[#F8F9FF] to-[#EEF0FF] p-7 text-slate-700 shadow-[0_18px_42px_rgba(9,14,88,0.08)] md:p-9">
             <p>
               We build community resilience through water projects, safe shelter, school support,
               food assistance, and empowerment programs designed for long-term impact.
@@ -367,7 +367,7 @@ export default function HomePage() {
           />
           <div className="grid gap-4 md:grid-cols-3">
             {approach.map((item, index) => (
-              <article key={item.title} className="rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(13,42,79,0.12)]">
+              <article key={item.title} className="rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(9,14,88,0.12)]">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">Step 0{index + 1}</p>
                 <h3 className="font-display text-lg font-semibold text-slate-900">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.detail}</p>
@@ -403,7 +403,7 @@ export default function HomePage() {
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {fieldMoments.map((moment, index) => (
-              <figure key={`${moment.src}-${index}`} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(13,42,79,0.12)]">
+              <figure key={`${moment.src}-${index}`} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(9,14,88,0.12)]">
                 <div className="relative h-44 w-full">
                   <Image
                     src={moment.src}
@@ -428,7 +428,7 @@ export default function HomePage() {
             subtitle="Short clips from the field — best viewed with sound on."
           />
           <div className="grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
-            <article className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_20px_45px_rgba(13,42,79,0.12)]">
+            <article className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_20px_45px_rgba(9,14,88,0.12)]">
               <video
                 className="h-72 w-full bg-slate-900 object-cover md:h-80"
                 controls
@@ -439,7 +439,7 @@ export default function HomePage() {
                 <source src={fieldVideos[0].src} type="video/mp4" />
               </video>
               <div className="space-y-2 border-t border-slate-100 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Featured clip</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#090E58]">Featured clip</p>
                 <p className="text-base font-semibold text-slate-900">{fieldVideos[0].title}</p>
                 <p className="text-sm leading-relaxed text-slate-600">{fieldVideos[0].note}</p>
               </div>
@@ -447,7 +447,7 @@ export default function HomePage() {
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               {fieldVideos.slice(1).map((video) => (
-                <article key={video.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(13,42,79,0.12)]">
+                <article key={video.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(9,14,88,0.12)]">
                   <video
                     className="h-52 w-full bg-slate-900 object-cover"
                     controls
@@ -468,7 +468,7 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-          <div className="grid overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_24px_56px_rgba(13,42,79,0.14)] lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_24px_56px_rgba(9,14,88,0.14)] lg:grid-cols-[1.1fr_0.9fr]">
             <div className="relative min-h-[280px]">
               <Image
                 src={gallery[5]}
@@ -479,7 +479,7 @@ export default function HomePage() {
               />
             </div>
             <div className="p-6 md:p-8">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#1d4f8f]">This Month In Focus</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#090E58]">This Month In Focus</p>
               <h3 className="font-display text-2xl font-semibold leading-tight text-slate-900">From household visits to school support, consistent presence creates trust.</h3>
               <p className="mt-4 text-sm leading-relaxed text-slate-600">
                 Our teams work alongside communities beyond one-time interventions. Regular follow-ups,
@@ -497,15 +497,15 @@ export default function HomePage() {
           />
           <div className="grid gap-4 md:grid-cols-3">
             {updates.map((item) => (
-              <article key={item.title} className="rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(13,42,79,0.12)]">
-                <p className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#1d4f8f]">
+              <article key={item.title} className="rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(9,14,88,0.12)]">
+                <p className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#090E58]">
                   {item.tag}
                 </p>
                 <h3 className="font-display mt-3 text-lg font-semibold text-slate-900">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.summary}</p>
                 <a
                   href={item.href}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#1d4f8f] hover:underline"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#090E58] hover:underline"
                 >
                   {item.label} <span aria-hidden>→</span>
                 </a>
@@ -515,20 +515,20 @@ export default function HomePage() {
         </section>
 
         <section id="get-involved" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-          <div className="rounded-3xl border border-[#d9e6f5] bg-gradient-to-br from-[#f5f9ff] to-[#ebf3ff] p-6 shadow-[0_20px_44px_rgba(13,42,79,0.09)] md:p-8">
+          <div className="rounded-3xl border border-[#D6D9E6] bg-gradient-to-br from-[#F8F9FF] to-[#EEF0FF] p-6 shadow-[0_20px_44px_rgba(9,14,88,0.09)] md:p-8">
             <SectionHeading
               title="Get Involved"
               subtitle="Contribute your time, expertise, partnerships, or resources to accelerate measurable outcomes in the communities we serve."
             />
             <div className="grid gap-4 md:grid-cols-3">
               {engagementPaths.map((path, index) => (
-                <article key={path.title} className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(13,42,79,0.12)]">
+                <article key={path.title} className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(9,14,88,0.12)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Path 0{index + 1}</p>
                   <h3 className="font-display mt-2 text-lg font-semibold text-slate-900">{path.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-slate-600">{path.text}</p>
                   <a
                     href={path.href}
-                    className="mt-5 inline-flex rounded-lg bg-[#1d4f8f] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#123a6a]"
+                    className="mt-5 inline-flex rounded-lg bg-[#E5A223] px-4 py-2 text-sm font-bold text-[#090E58] shadow-[0_10px_22px_rgba(229,162,35,0.28)] transition hover:bg-[#C98C1D] hover:shadow-[0_12px_24px_rgba(201,140,29,0.3)]"
                   >
                     {path.cta}
                   </a>
@@ -570,29 +570,29 @@ export default function HomePage() {
 
         <section id="volunteer" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
           <div className="grid gap-4 md:grid-cols-2">
-            <article id="join-team" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(13,42,79,0.12)]">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Volunteer</p>
+            <article id="join-team" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(9,14,88,0.12)]">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#090E58]">Volunteer</p>
               <h3 className="font-display text-xl font-semibold text-slate-900">Join AFFDI field and impact teams</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
                 Help with outreach, documentation, logistics, and community coordination. We welcome local and remote volunteers.
               </p>
               <a
                 href="mailto:info@affdi.org?subject=Volunteer%20Interest%20-%20AFFDI"
-                className="mt-5 inline-flex rounded-lg bg-[#1d4f8f] px-5 py-2 text-sm font-semibold text-white hover:bg-[#123a6a]"
+                className="mt-5 inline-flex rounded-lg bg-[#E5A223] px-5 py-2 text-sm font-bold text-[#090E58] shadow-[0_10px_22px_rgba(229,162,35,0.28)] transition hover:bg-[#C98C1D] hover:shadow-[0_12px_24px_rgba(201,140,29,0.3)]"
               >
                 Email Volunteer Team
               </a>
             </article>
 
-            <article id="partner" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(13,42,79,0.12)]">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Partnerships</p>
+            <article id="partner" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(9,14,88,0.12)]">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#090E58]">Partnerships</p>
               <h3 className="font-display text-xl font-semibold text-slate-900">Collaborate with AFFDI programs</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
                 Institutions and organizations can partner on co-funding, implementation support, and strategic collaboration.
               </p>
               <a
                 href="mailto:info@affdi.org?subject=Partnership%20Inquiry%20-%20AFFDI"
-                className="mt-5 inline-flex rounded-lg bg-[#1d4f8f] px-5 py-2 text-sm font-semibold text-white hover:bg-[#123a6a]"
+                className="mt-5 inline-flex rounded-lg bg-[#E5A223] px-5 py-2 text-sm font-bold text-[#090E58] shadow-[0_10px_22px_rgba(229,162,35,0.28)] transition hover:bg-[#C98C1D] hover:shadow-[0_12px_24px_rgba(201,140,29,0.3)]"
               >
                 Start Partnership Inquiry
               </a>
@@ -601,15 +601,15 @@ export default function HomePage() {
         </section>
 
         <section id="contact" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-          <div className="rounded-3xl border border-slate-200/90 bg-white/90 p-6 shadow-[0_22px_52px_rgba(13,42,79,0.12)] backdrop-blur-sm md:p-8">
+          <div className="rounded-3xl border border-slate-200/90 bg-white/90 p-6 shadow-[0_22px_52px_rgba(9,14,88,0.12)] backdrop-blur-sm md:p-8">
             <SectionHeading
               title="Contact AFFDI"
               subtitle="Reach our team directly for impact updates, volunteer onboarding, and program partnerships."
             />
             <div className="grid gap-3 text-sm text-slate-700 md:grid-cols-3">
-              <a href="mailto:info@affdi.org" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">info@affdi.org</a>
-              <a href="tel:+256752764415" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">+256 752 764 415</a>
-              <a href="#get-involved" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#1d4f8f]/40">View involvement options</a>
+              <a href="mailto:info@affdi.org" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#090E58]/40">info@affdi.org</a>
+              <a href="tel:+256752764415" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#090E58]/40">+256 752 764 415</a>
+              <a href="#get-involved" className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 hover:border-[#090E58]/40">View involvement options</a>
             </div>
           </div>
         </section>
@@ -627,9 +627,9 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 px-4 py-3 shadow-[0_-10px_30px_rgba(13,42,79,0.08)] backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 px-4 py-3 shadow-[0_-10px_30px_rgba(9,14,88,0.08)] backdrop-blur md:hidden">
         <div className="mx-auto grid max-w-7xl grid-cols-3 gap-2">
-          <a href="#get-involved" className="inline-flex items-center justify-center rounded-xl bg-[#ef8b1e] px-3 py-3 text-center text-xs font-bold text-slate-900">
+          <a href="#get-involved" className="inline-flex items-center justify-center rounded-xl bg-[#E5A223] px-3 py-3 text-center text-xs font-bold text-[#090E58]">
             Get Involved
           </a>
           <a href="#programs" className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-3 py-3 text-center text-xs font-semibold text-slate-700">

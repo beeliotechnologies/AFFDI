@@ -192,7 +192,7 @@ const historyHeroImage =
 
 export default function HistoryPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white text-slate-800">
+    <main className="min-h-screen bg-transparent text-slate-800">
       <SiteNav
         brand={brand}
         links={navLinks}
@@ -239,10 +239,10 @@ export default function HistoryPage() {
         <div className="space-y-5">
           {timeline.map((item) => (
             <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-7">
-              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#eef4fb] text-[#1d4f8f]">
+              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#EEF0FF] text-[#090E58]">
                 <item.icon className="h-5 w-5" aria-hidden="true" />
               </div>
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">{item.period}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#090E58]">{item.period}</p>
               <h2 className="mt-1 text-xl font-semibold text-slate-900">{item.title}</h2>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.text}</p>
             </article>
@@ -250,14 +250,14 @@ export default function HistoryPage() {
         </div>
 
         <section className="mt-10">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#eef4fb] px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#EEF0FF] px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#090E58]">
             <Route className="h-3.5 w-3.5" aria-hidden="true" />
             Historical Snapshots
           </div>
           <div className="space-y-4">
             {growthSnapshots.map((item) => (
               <article key={item.year + item.title} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5 md:p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">{item.year}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#090E58]">{item.year}</p>
                 <h3 className="mt-1 text-lg font-semibold text-slate-900">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.text}</p>
               </article>
@@ -271,7 +271,7 @@ export default function HistoryPage() {
             <ul className="mt-4 space-y-3">
               {learningMilestones.map((lesson) => (
                 <li key={lesson} className="flex items-start gap-2 text-sm leading-relaxed text-slate-700">
-                  <CircleCheckBig className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#1d4f8f]" aria-hidden="true" />
+                  <CircleCheckBig className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#090E58]" aria-hidden="true" />
                   <span>{lesson}</span>
                 </li>
               ))}

@@ -53,7 +53,7 @@ function StatCard({ stat, index, visible }) {
         </span>
       )}
       <div
-        className={`text-3xl font-extrabold leading-none tabular-nums ${stat.accent ?? "text-[#1d4f8f]"}`}
+        className={`text-3xl font-extrabold leading-none tabular-nums ${stat.accent ?? "text-[#090E58]"}`}
         aria-label={stat.value}
       >
         {displayValue}

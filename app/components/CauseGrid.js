@@ -23,7 +23,7 @@ export default function CauseGrid({ causes }) {
             <h3 className="font-display text-base font-semibold text-slate-900">{cause.title}</h3>
             <p className="text-sm leading-relaxed text-slate-600">{cause.description}</p>
             <Link
-              className="inline-flex items-center rounded-lg border border-[#d9e3ef] bg-[#eef4fb] px-3.5 py-1.5 text-sm font-semibold text-[#1d4f8f] transition hover:bg-[#dfeaf7]"
+              className="inline-flex items-center rounded-lg border border-[#D6D9E6] bg-[#EEF0FF] px-3.5 py-1.5 text-sm font-semibold text-[#090E58] transition hover:bg-[#E5E8F8]"
               href={cause.href}
             >
               Read story

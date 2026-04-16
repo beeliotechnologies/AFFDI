@@ -7,8 +7,8 @@
   --brand-soft: #eef4fb;
   --bg: #f5f7fa;
   --surface: #ffffff;
-  --surface-soft: #f2f6fb;
-  --surface-tint: #e7eff8;
+  --surface-soft: #f3f4fb;
+  --surface-tint: #eaecf8;
   --text: #0f1d2e;
   --muted: #4f6075;
   --accent: #1d4f8f;
@@ -103,7 +103,7 @@ img {
   margin-top: 0;
   background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 8px 20px rgba(13, 42, 79, 0.08);
+  box-shadow: 0 8px 20px rgba(9, 14, 88, 0.08);
   backdrop-filter: blur(8px);
   padding: 0.85rem 1.2rem;
   display: flex;
@@ -154,7 +154,7 @@ img {
   font-size: 0.88rem;
   color: white;
   background: linear-gradient(135deg, var(--accent-2), var(--accent));
-  box-shadow: 0 10px 20px rgba(29, 79, 143, 0.25);
+  box-shadow: 0 10px 20px rgba(9, 14, 88, 0.25);
 }
 
 .brandName {
@@ -706,7 +706,7 @@ img {
   grid-template-columns: 1.2fr 1fr 1fr;
   gap: 2rem;
   padding: 2.3rem 0 1rem;
-  border-top: 1px solid rgba(29, 79, 143, 0.18);
+  border-top: 1px solid rgba(9, 14, 88, 0.18);
 }
 
 .siteFooter h3 {

@@ -29,7 +29,7 @@ export default function ProgramGrid({ items = [] }) {
 
           <div className="space-y-2.5 p-4">
             <div className="flex items-center justify-between gap-3 text-xs">
-              <span className="rounded-full bg-[#eef4fb] px-2.5 py-1 font-semibold uppercase tracking-[0.08em] text-[#123a6a]">
+              <span className="rounded-full bg-[#EEF0FF] px-2.5 py-1 font-semibold uppercase tracking-[0.08em] text-[#06093F]">
                 {item.focus ?? "Program"}
               </span>
               {item.coverage && (
@@ -46,7 +46,7 @@ export default function ProgramGrid({ items = [] }) {
             </p>
 
             {item.result && (
-              <p className="border-t border-slate-100 pt-3 text-sm font-medium text-[#123a6a]">
+              <p className="border-t border-slate-100 pt-3 text-sm font-medium text-[#06093F]">
                 {item.result}
               </p>
             )}
@@ -54,7 +54,7 @@ export default function ProgramGrid({ items = [] }) {
             {item.href && (
               <Link
                 href={item.href}
-                className="inline-flex rounded-lg border border-[#d9e3ef] bg-[#eef4fb] px-3.5 py-1.5 text-sm font-semibold text-[#1d4f8f] transition hover:bg-[#dfeaf7]"
+                className="inline-flex rounded-lg border border-[#D6D9E6] bg-[#EEF0FF] px-3.5 py-1.5 text-sm font-semibold text-[#090E58] transition hover:bg-[#E5E8F8]"
               >
                 Learn more
                 <span className="sr-only"> about {item.title}</span>

@@ -164,7 +164,7 @@ const volunteerHeroImage =
 
 export default function VolunteerPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+    <main className="min-h-screen bg-transparent">
       <SiteNav
         brand={brand}
         links={navLinks}

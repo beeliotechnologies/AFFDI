@@ -39,9 +39,9 @@ export default function ProgramDetailPage({ params }) {
   }
 
   return (
-    <main id="main-content" className="min-h-screen bg-[#f8fbff] text-slate-800">
+    <main id="main-content" className="min-h-screen bg-transparent text-slate-800">
       <section className="mx-auto max-w-5xl px-6 py-10 md:py-14">
-        <Link href="/#programs" className="text-sm font-semibold text-[#1d4f8f] hover:underline">
+        <Link href="/#programs" className="text-sm font-semibold text-[#090E58] hover:underline">
           ← Back to programs
         </Link>
 
@@ -52,7 +52,7 @@ export default function ProgramDetailPage({ params }) {
 
           <div className="space-y-5 p-6 md:p-8">
             <div className="flex flex-wrap items-center gap-2 text-xs">
-              <span className="rounded-full bg-[#eef4fb] px-2.5 py-1 font-semibold uppercase tracking-[0.08em] text-[#123a6a]">
+              <span className="rounded-full bg-[#EEF0FF] px-2.5 py-1 font-semibold uppercase tracking-[0.08em] text-[#06093F]">
                 {program.focus}
               </span>
               <span className="rounded-full bg-slate-100 px-2.5 py-1 font-semibold uppercase tracking-[0.08em] text-slate-700">
@@ -66,7 +66,7 @@ export default function ProgramDetailPage({ params }) {
 
             <p className="text-base leading-relaxed text-slate-700">{program.overview}</p>
 
-            <section className="rounded-xl border border-slate-200 bg-[#eef4fb] p-4">
+            <section className="rounded-xl border border-slate-200 bg-[#EEF0FF] p-4">
               <h2 className="font-display text-xl font-semibold text-slate-900">Program snapshot</h2>
               <div className="mt-3 grid gap-3 sm:grid-cols-3">
                 <div className="rounded-lg border border-slate-200 bg-white p-3">
@@ -90,7 +90,7 @@ export default function ProgramDetailPage({ params }) {
                 <ul className="mt-3 space-y-2">
                   {program.activities.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                      <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#1d4f8f]" />
+                      <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#090E58]" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -102,7 +102,7 @@ export default function ProgramDetailPage({ params }) {
                 <ul className="mt-3 space-y-2">
                   {program.outcomes.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                      <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#1d4f8f]" />
+                      <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#090E58]" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -110,13 +110,13 @@ export default function ProgramDetailPage({ params }) {
               </section>
             </div>
 
-            <div className="rounded-xl border border-slate-200 bg-[#eef4fb] p-4 text-sm text-slate-700">
+            <div className="rounded-xl border border-slate-200 bg-[#EEF0FF] p-4 text-sm text-slate-700">
               <p className="font-semibold text-slate-900">Current progress signal</p>
               <p className="mt-1">{program.result}</p>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Link href="/donate" className="inline-flex rounded-lg bg-[#ef8b1e] px-5 py-2.5 text-sm font-bold text-slate-900 hover:bg-[#de7f17]">
+              <Link href="/donate" className="inline-flex rounded-lg bg-[#E5A223] px-5 py-2.5 text-sm font-bold text-[#090E58] hover:bg-[#C98C1D]">
                 Support this program
               </Link>
               <Link href="/#programs" className="inline-flex rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
@@ -132,7 +132,7 @@ export default function ProgramDetailPage({ params }) {
                     <Link
                       key={item.slug}
                       href={item.href}
-                      className="rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-700 transition hover:border-[#1d4f8f]/30 hover:bg-[#eef4fb]"
+                      className="rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-700 transition hover:border-[#090E58]/30 hover:bg-[#EEF0FF]"
                     >
                       <p className="font-semibold text-slate-900">{item.title}</p>
                       <p className="mt-1 text-xs text-slate-500">{item.beneficiaries ?? item.coverage}</p>

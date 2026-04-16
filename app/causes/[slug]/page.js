@@ -39,9 +39,9 @@ export default function CauseStoryPage({ params }) {
   }
 
   return (
-    <main id="main-content" className="min-h-screen bg-[#f8fbff] text-slate-800">
+    <main id="main-content" className="min-h-screen bg-transparent text-slate-800">
       <section className="mx-auto max-w-5xl px-6 py-10 md:py-14">
-        <Link href="/#main-content" className="text-sm font-semibold text-[#1d4f8f] hover:underline">
+        <Link href="/#main-content" className="text-sm font-semibold text-[#090E58] hover:underline">
           ← Back to home
         </Link>
 
@@ -55,7 +55,7 @@ export default function CauseStoryPage({ params }) {
               <span className="rounded-full bg-amber-100 px-2.5 py-1 font-semibold uppercase tracking-[0.08em] text-amber-800">
                 {cause.urgency}
               </span>
-              <span className="rounded-full bg-[#eef4fb] px-2.5 py-1 font-semibold uppercase tracking-[0.08em] text-[#123a6a]">
+              <span className="rounded-full bg-[#EEF0FF] px-2.5 py-1 font-semibold uppercase tracking-[0.08em] text-[#06093F]">
                 {cause.goal}
               </span>
             </div>
@@ -79,7 +79,7 @@ export default function CauseStoryPage({ params }) {
               <ul className="mt-3 space-y-2">
                 {cause.impact.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                    <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#1d4f8f]" />
+                    <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#090E58]" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -89,7 +89,7 @@ export default function CauseStoryPage({ params }) {
             <div className="flex flex-wrap gap-3">
               <Link
                 href={`/donate?cause=${encodeURIComponent(cause.slug)}`}
-                className="inline-flex rounded-lg bg-[#ef8b1e] px-5 py-2.5 text-sm font-bold text-slate-900 hover:bg-[#de7f17]"
+                className="inline-flex rounded-lg bg-[#E5A223] px-5 py-2.5 text-sm font-bold text-[#090E58] hover:bg-[#C98C1D]"
               >
                 Support this cause
               </Link>
@@ -109,7 +109,7 @@ export default function CauseStoryPage({ params }) {
                     <Link
                       key={item.slug}
                       href={item.href}
-                      className="rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-700 transition hover:border-[#1d4f8f]/30 hover:bg-[#eef4fb]"
+                      className="rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-700 transition hover:border-[#090E58]/30 hover:bg-[#EEF0FF]"
                     >
                       <p className="font-semibold text-slate-900">{item.title}</p>
                       <p className="mt-1 text-xs text-slate-500">{item.goal}</p>

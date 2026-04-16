@@ -182,7 +182,7 @@ const whoWeAreHeroImage =
 
 export default function WhoWeArePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white text-slate-800">
+    <main className="min-h-screen bg-transparent text-slate-800">
       <SiteNav
         brand={brand}
         links={navLinks}
@@ -228,7 +228,7 @@ export default function WhoWeArePage() {
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {pillars.map((item) => (
             <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#eef4fb] text-[#1d4f8f]">
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#EEF0FF] text-[#090E58]">
                 <item.icon className="h-5 w-5" aria-hidden="true" />
               </div>
               <h2 className="text-xl font-semibold text-slate-900">{item.title}</h2>
@@ -251,14 +251,14 @@ export default function WhoWeArePage() {
 
         <section className="mt-10 grid gap-5 md:grid-cols-2">
           <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-7">
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#eef4fb] text-[#1d4f8f]">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#EEF0FF] text-[#090E58]">
               <MapPinned className="h-5 w-5" aria-hidden="true" />
             </div>
             <h3 className="text-lg font-semibold text-slate-900 sm:text-xl">Where We Work</h3>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
               {footprint.map((place) => (
                 <li key={place} className="flex items-start gap-2">
-                  <ArrowRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#1d4f8f]" aria-hidden="true" />
+                  <ArrowRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#090E58]" aria-hidden="true" />
                   <span>{place}</span>
                 </li>
               ))}
@@ -270,7 +270,7 @@ export default function WhoWeArePage() {
             <div className="mt-4 space-y-4">
               {differentiators.map((item) => (
                 <div key={item.title} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                  <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-md bg-[#eef4fb] text-[#1d4f8f]">
+                  <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-md bg-[#EEF0FF] text-[#090E58]">
                     <item.icon className="h-4 w-4" aria-hidden="true" />
                   </div>
                   <h4 className="text-sm font-semibold text-slate-900">{item.title}</h4>

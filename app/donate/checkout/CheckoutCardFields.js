@@ -89,7 +89,7 @@ export default function CheckoutCardFields({ cancelHref, defaultName = "", bankD
             {paymentError}
           </div>
           {bankDetails ? (
-            <div className="rounded-xl border border-slate-200 bg-[#eef4fb] p-4 text-sm text-slate-700">
+            <div className="rounded-xl border border-slate-200 bg-[#EEF0FF] p-4 text-sm text-slate-700">
               <p className="font-semibold text-slate-900">Use bank transfer instead</p>
               <dl className="mt-3 grid gap-2">
                 <div className="grid grid-cols-[120px_1fr] gap-2"><dt className="font-semibold">Bank</dt><dd>{bankDetails.bankName}</dd></div>
@@ -103,7 +103,7 @@ export default function CheckoutCardFields({ cancelHref, defaultName = "", bankD
                 ) : null}
               </dl>
               <p className="mt-3 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600">
-                Please email proof of payment to <a className="font-semibold text-[#1d4f8f] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a>.
+                Please email proof of payment to <a className="font-semibold text-[#090E58] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a>.
               </p>
             </div>
           ) : null}
@@ -114,7 +114,7 @@ export default function CheckoutCardFields({ cancelHref, defaultName = "", bankD
         <button
           type="button"
           onClick={onPay}
-          className="inline-flex rounded-xl bg-[#ef8b1e] px-5 py-2.5 text-sm font-bold text-slate-900 hover:bg-[#de7f17]"
+          className="inline-flex rounded-xl bg-[#E5A223] px-5 py-2.5 text-sm font-bold text-[#090E58] hover:bg-[#C98C1D]"
         >
           Complete Payment
         </button>

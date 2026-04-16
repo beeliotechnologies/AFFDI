@@ -15,6 +15,7 @@ export default function SiteNav({
   learnMoreHref = "#about",
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDesktopMenu, setOpenDesktopMenu] = useState(null);
   const [activeSection, setActiveSection] = useState(menuSections[0]?.id ?? "");
   const triggerRef = useRef(null);
   const drawerRef = useRef(null);
@@ -79,11 +80,11 @@ export default function SiteNav({
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-[#090E58] bg-[#090E58]/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:gap-4 md:px-6 lg:px-10">
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-300 bg-white text-lg text-slate-700 transition hover:bg-slate-50"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/30 bg-white/10 text-lg text-white transition hover:bg-white/20"
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((value) => !value)}
@@ -93,7 +94,7 @@ export default function SiteNav({
           </button>
 
           <Link href="/" className="flex items-center gap-3" aria-label={`${brand.name} home`}>
-            <span className="relative block h-10 w-10 overflow-hidden rounded-xl border border-slate-200 bg-white">
+            <span className="relative block h-10 w-10 overflow-hidden rounded-xl border border-white/35 bg-white">
               <Image
                 src={logoSrc}
                 alt={`${brand.name} logo`}
@@ -103,33 +104,46 @@ export default function SiteNav({
               />
             </span>
             <span className="leading-tight">
-              <span className="font-display block text-sm font-bold text-slate-900 md:text-base">{brand.name}</span>
-              {brand.tagline ? <span className="hidden text-xs text-slate-500 md:block">{brand.tagline}</span> : null}
+              <span className="font-display block text-sm font-bold text-white md:text-base">{brand.name}</span>
+              {brand.tagline ? <span className="hidden text-xs text-white/75 md:block">{brand.tagline}</span> : null}
             </span>
           </Link>
 
-          <nav className="ml-3 hidden items-center gap-6 text-sm text-slate-700 md:flex" aria-label="Primary navigation">
+          <nav className="ml-3 hidden items-center gap-6 text-sm text-white/90 md:flex" aria-label="Primary navigation">
             {links.map((link) => (
               Array.isArray(link.items) && link.items.length > 0 ? (
-                <div key={link.label} className="group relative">
-                  <Link href={link.href} className="inline-flex items-center gap-1 transition hover:text-[#1d4f8f]">
+                <div
+                  key={link.label}
+                  className="relative py-2"
+                  onMouseEnter={() => setOpenDesktopMenu(link.label)}
+                  onMouseLeave={() => setOpenDesktopMenu(null)}
+                  onFocus={() => setOpenDesktopMenu(link.label)}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget)) {
+                      setOpenDesktopMenu(null);
+                    }
+                  }}
+                >
+                  <Link href={link.href} className="inline-flex items-center gap-1 text-white/90 transition hover:text-[#E5A223] focus-visible:text-[#E5A223]">
                     {link.label}
                     <span aria-hidden className="text-xs">▾</span>
                   </Link>
-                  <div className="invisible absolute left-0 top-full z-50 mt-2 w-64 translate-y-1 rounded-xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                    {link.items.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        className="block rounded-lg px-3 py-2 text-sm text-slate-700 transition hover:bg-[#eef4fb] hover:text-[#1d4f8f]"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
+                  {openDesktopMenu === link.label ? (
+                    <div className="absolute left-0 top-full z-50 w-72 rounded-xl border border-white/25 bg-[#090E58]/95 p-2 shadow-[0_18px_40px_rgba(9,14,88,0.28)] backdrop-blur">
+                      {link.items.map((item, index) => (
+                        <Link
+                          key={`${item.label ?? item.title ?? item.href}-${index}`}
+                          href={item.href}
+                          className="block rounded-lg px-3 py-2 text-sm font-medium text-white/90 transition hover:bg-white/10 hover:text-[#E5A223]"
+                        >
+                          {item.label ?? item.title ?? item.href}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               ) : (
-                <Link key={link.label} href={link.href} className="transition hover:text-[#1d4f8f]">
+                <Link key={link.label} href={link.href} className="text-white/90 transition hover:text-[#E5A223] focus-visible:text-[#E5A223]">
                   {link.label}
                 </Link>
               )
@@ -139,7 +153,7 @@ export default function SiteNav({
           <div className="ml-auto">
             <Link
               href={donateHref}
-              className="inline-flex items-center rounded-xl bg-[#ef8b1e] px-3 py-2 text-sm font-bold text-slate-900 transition hover:bg-[#de7f17] sm:px-4"
+              className="inline-flex items-center rounded-xl bg-[#E5A223] px-3 py-2 text-sm font-bold text-[#090E58] transition hover:bg-[#C98C1D] sm:px-4"
             >
               {primaryActionLabel}
             </Link>
@@ -190,7 +204,7 @@ export default function SiteNav({
                   type="button"
                   className={`rounded-xl px-3 py-2 text-left text-sm font-medium transition ${
                     section.id === activeSection
-                      ? "bg-[#1d4f8f] text-white"
+                      ? "bg-[#090E58] text-white"
                       : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                   }`}
                   onClick={() => setActiveSection(section.id)}
@@ -201,7 +215,7 @@ export default function SiteNav({
             </nav>
 
             <div className="mt-6 grid gap-2">
-              <Link href={donateHref} onClick={close} className="rounded-xl bg-[#ef8b1e] px-4 py-2 text-center text-sm font-bold text-slate-900">
+              <Link href={donateHref} onClick={close} className="rounded-xl bg-[#E5A223] px-4 py-2 text-center text-sm font-bold text-[#090E58]">
                 {primaryActionLabel}
               </Link>
               <Link href={learnMoreHref} onClick={close} className="rounded-xl border border-slate-300 px-4 py-2 text-center text-sm font-semibold text-slate-700">
@@ -218,7 +232,7 @@ export default function SiteNav({
                   key={item.label}
                   href={item.href}
                   onClick={close}
-                  className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 transition hover:border-[#1d4f8f]/30 hover:bg-[#eef4fb]"
+                  className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 transition hover:border-[#090E58]/30 hover:bg-[#EEF0FF]"
                 >
                   {item.label}
                 </Link>
@@ -227,7 +241,7 @@ export default function SiteNav({
 
             {(phone || email) ? (
               <div className="mt-8 grid gap-1 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1d4f8f]">Contact</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#090E58]">Contact</p>
                 {phone ? <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:text-slate-900">{phone}</a> : null}
                 {email ? <a href={`mailto:${email}`} className="hover:text-slate-900">{email}</a> : null}
               </div>

@@ -165,7 +165,7 @@ export default function DonatePage({ searchParams }) {
   const focus = impactOptions[selectedCause];
 
   return (
-    <main id="main-content" className="min-h-screen bg-[#f8fbff] text-slate-800">
+    <main id="main-content" className="min-h-screen bg-transparent text-slate-800">
       <SiteNav
         brand={brand}
         links={navLinks}
@@ -178,16 +178,16 @@ export default function DonatePage({ searchParams }) {
       />
 
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-        <Link href="/#main-content" className="text-sm font-semibold text-[#1d4f8f] hover:underline">
+        <Link href="/#main-content" className="text-sm font-semibold text-[#090E58] hover:underline">
           ← Back to home
         </Link>
 
         <div className="mt-5 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <aside className="lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)]">
             <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div className="relative h-56 w-full sm:h-64">
+              <div className="relative w-full bg-slate-900 aspect-[4/3] sm:aspect-[16/10]">
                 <video
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                   autoPlay
                   muted
                   loop
@@ -205,8 +205,8 @@ export default function DonatePage({ searchParams }) {
               </div>
 
               <div className="flex-1 space-y-5 p-5 sm:p-6">
-                <div className="rounded-xl border border-slate-200 bg-[#eef4fb] p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Selected focus</p>
+                <div className="rounded-xl border border-slate-200 bg-[#EEF0FF] p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#090E58]">Selected focus</p>
                   <h2 className="mt-1 font-display text-xl font-semibold text-slate-900">{focus.title}</h2>
                   <p className="mt-2 text-sm text-slate-600">{focus.note}</p>
                 </div>
@@ -219,14 +219,14 @@ export default function DonatePage({ searchParams }) {
 
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
                   <p className="font-semibold text-slate-900">Need help before donating?</p>
-                  <p className="mt-1">Email <a className="font-semibold text-[#1d4f8f] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a> or call <a className="font-semibold text-[#1d4f8f] hover:underline" href="tel:+256752764415">+256 752 764 415</a>.</p>
+                  <p className="mt-1">Email <a className="font-semibold text-[#090E58] hover:underline" href="mailto:info@affdi.org">info@affdi.org</a> or call <a className="font-semibold text-[#090E58] hover:underline" href="tel:+256752764415">+256 752 764 415</a>.</p>
                 </div>
               </div>
             </div>
           </aside>
 
           <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-8">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Donation steps</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#090E58]">Donation steps</p>
             <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
               Complete your donation in four steps
             </h2>
@@ -234,8 +234,8 @@ export default function DonatePage({ searchParams }) {
               The left panel stays visible while the right side advances step by step through amount, donor details, payment, and review.
             </p>
 
-            <div className="mt-5 rounded-xl border border-[#d9e3ef] bg-[#eef4fb] p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#1d4f8f]">Chosen campaign</p>
+            <div className="mt-5 rounded-xl border border-[#D6D9E6] bg-[#EEF0FF] p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#090E58]">Chosen campaign</p>
               <p className="mt-1 text-sm text-slate-600">{focus.title} — {focus.note}</p>
             </div>
 

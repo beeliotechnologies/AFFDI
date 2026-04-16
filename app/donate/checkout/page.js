@@ -154,7 +154,7 @@ export default function CheckoutPage({ searchParams }) {
   const formattedAmount = computedAmount > 0 ? `${currency} ${computedAmount.toLocaleString()}` : `${currency} Custom`;
 
   return (
-    <main id="main-content" className="min-h-screen bg-[#f8fbff] text-slate-800">
+    <main id="main-content" className="min-h-screen bg-transparent text-slate-800">
       <SiteNav
         brand={brand}
         links={navLinks}
@@ -167,14 +167,14 @@ export default function CheckoutPage({ searchParams }) {
       />
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-        <Link href="/donate" className="text-sm font-semibold text-[#1d4f8f] hover:underline">
+        <Link href="/donate" className="text-sm font-semibold text-[#090E58] hover:underline">
           ← Back to donate page
         </Link>
 
         <article className="mt-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6 md:p-8">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#1d4f8f]">Secure checkout</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#090E58]">Secure checkout</p>
               <h1 className="font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
                 Complete Your Donation
               </h1>
@@ -204,7 +204,7 @@ export default function CheckoutPage({ searchParams }) {
                 </div>
               </div>
 
-              <div className="mt-5 rounded-xl border border-slate-200 bg-[#eef4fb] p-4">
+              <div className="mt-5 rounded-xl border border-slate-200 bg-[#EEF0FF] p-4">
                 <h2 className="font-display text-xl font-semibold text-slate-900">Donor information</h2>
                 <dl className="mt-3 grid gap-2 text-sm text-slate-700">
                   <div className="grid grid-cols-[110px_1fr] gap-2"><dt className="font-semibold">Name</dt><dd>{fullName}</dd></div>
@@ -228,7 +228,7 @@ export default function CheckoutPage({ searchParams }) {
 
               <section className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
                 <p className="font-semibold text-slate-900">Need support before completing?</p>
-                <a className="mt-2 inline-flex font-semibold text-[#1d4f8f] hover:underline" href="mailto:info@affdi.org?subject=Donation%20Support%20-%20AFFDI">Contact donations desk</a>
+                <a className="mt-2 inline-flex font-semibold text-[#090E58] hover:underline" href="mailto:info@affdi.org?subject=Donation%20Support%20-%20AFFDI">Contact donations desk</a>
               </section>
             </aside>
           </div>
