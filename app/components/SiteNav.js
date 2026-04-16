@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SiteNav({
   brand,
@@ -74,6 +75,7 @@ export default function SiteNav({
   const close = () => setIsOpen(false);
   const activePanel =
     menuSections.find((section) => section.id === activeSection) ?? menuSections[0];
+  const logoSrc = brand?.logoSrc ?? "/logo.png";
 
   return (
     <>
@@ -91,8 +93,14 @@ export default function SiteNav({
           </button>
 
           <Link href="/" className="flex items-center gap-3" aria-label={`${brand.name} home`}>
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#1d4f8f] text-sm font-extrabold text-white">
-              {brand.mark}
+            <span className="relative block h-10 w-10 overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <Image
+                src={logoSrc}
+                alt={`${brand.name} logo`}
+                fill
+                className="object-cover"
+                sizes="40px"
+              />
             </span>
             <span className="leading-tight">
               <span className="font-display block text-sm font-bold text-slate-900 md:text-base">{brand.name}</span>
@@ -163,8 +171,14 @@ export default function SiteNav({
         <div className="grid min-h-full grid-cols-1 md:grid-cols-[300px_1fr]">
           <div className="border-b border-slate-200 p-5 md:border-b-0 md:border-r md:p-8">
             <Link href="/" className="mb-8 flex items-center gap-3" onClick={close}>
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#1d4f8f] font-extrabold text-white">
-                {brand.mark}
+              <span className="relative block h-11 w-11 overflow-hidden rounded-xl border border-slate-200 bg-white">
+                <Image
+                  src={logoSrc}
+                  alt={`${brand.name} logo`}
+                  fill
+                  className="object-cover"
+                  sizes="44px"
+                />
               </span>
               <span className="font-display text-lg font-bold text-slate-900">{brand.name}</span>
             </Link>

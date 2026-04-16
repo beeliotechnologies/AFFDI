@@ -12,10 +12,24 @@ import SectionHeading from './components/SectionHeading';
 import SiteFooter from './components/SiteFooter';
 import SiteNav from './components/SiteNav';
 
+const serviceItems = [
+  { label: 'All Services', href: '/what-we-do' },
+  { label: 'Safe Water Projects', href: '/programs/safe-water-projects' },
+  { label: 'Shelter Support', href: '/programs/shelter-support' },
+  { label: 'Education & School Infrastructure', href: '/programs/education-school-infrastructure' },
+  { label: 'Household Support', href: '/programs/household-support' },
+  { label: 'Food Security', href: '/programs/food-security' },
+  { label: 'Community Empowerment', href: '/programs/community-empowerment' },
+];
+
 const navLinks = [
   { label: 'Home', href: '#main-content' },
   { label: 'Impact', href: '#impact' },
-  { label: 'Our Work', href: '#programs' },
+  {
+    label: 'What We Do',
+    href: '/what-we-do',
+    items: serviceItems,
+  },
   {
     label: 'About Us',
     href: '/about-us/who-we-are',
@@ -55,12 +69,7 @@ const navSections = [
     id: 'what-we-do',
     label: 'What We Do',
     title: 'Programs & Causes',
-    items: [
-      { label: 'Water & Sanitation', href: '#programs' },
-      { label: 'Education & Shelter', href: '#programs' },
-      { label: 'Food Security', href: '#programs' },
-      { label: 'Our Causes', href: '/#programs' },
-    ],
+    items: serviceItems,
   },
   {
     id: 'where-we-work',

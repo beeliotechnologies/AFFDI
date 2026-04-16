@@ -12,7 +12,19 @@ const brand = {
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Impact", href: "/#impact" },
-  { label: "Our Work", href: "/#programs" },
+  {
+    label: "What We Do",
+    href: "/what-we-do",
+    items: [
+      { label: "All Services", href: "/what-we-do" },
+      { label: "Safe Water Projects", href: "/programs/safe-water-projects" },
+      { label: "Shelter Support", href: "/programs/shelter-support" },
+      { label: "Education & School Infrastructure", href: "/programs/education-school-infrastructure" },
+      { label: "Household Support", href: "/programs/household-support" },
+      { label: "Food Security", href: "/programs/food-security" },
+      { label: "Community Empowerment", href: "/programs/community-empowerment" },
+    ],
+  },
   {
     label: "About Us",
     href: "/about-us/who-we-are",
@@ -37,6 +49,20 @@ const navLinks = [
 ];
 
 const navSections = [
+  {
+    id: "what-we-do",
+    label: "What We Do",
+    title: "Programs & Services",
+    items: [
+      { label: "All Services", href: "/what-we-do" },
+      { label: "Safe Water Projects", href: "/programs/safe-water-projects" },
+      { label: "Shelter Support", href: "/programs/shelter-support" },
+      { label: "Education & School Infrastructure", href: "/programs/education-school-infrastructure" },
+      { label: "Household Support", href: "/programs/household-support" },
+      { label: "Food Security", href: "/programs/food-security" },
+      { label: "Community Empowerment", href: "/programs/community-empowerment" },
+    ],
+  },
   {
     id: "about-us",
     label: "About Us",
@@ -112,7 +138,7 @@ const campaignStory = [
 const footerLinks = [
   { label: "Home", href: "/" },
   { label: "Impact", href: "/#impact" },
-  { label: "Our Work", href: "/#programs" },
+  { label: "What We Do", href: "/what-we-do" },
   { label: "Who We Are", href: "/about-us/who-we-are" },
   { label: "History", href: "/about-us/history" },
   { label: "Mission, Vision & Values", href: "/about-us/mission-vision-and-values" },

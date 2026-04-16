@@ -10,10 +10,24 @@ const brand = {
   tagline: "Alliances for Fundamental Development Initiative",
 };
 
+const serviceItems = [
+  { label: "All Services", href: "/what-we-do" },
+  { label: "Safe Water Projects", href: "/programs/safe-water-projects" },
+  { label: "Shelter Support", href: "/programs/shelter-support" },
+  { label: "Education & School Infrastructure", href: "/programs/education-school-infrastructure" },
+  { label: "Household Support", href: "/programs/household-support" },
+  { label: "Food Security", href: "/programs/food-security" },
+  { label: "Community Empowerment", href: "/programs/community-empowerment" },
+];
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Impact", href: "/#impact" },
-  { label: "Our Work", href: "/#programs" },
+  {
+    label: "What We Do",
+    href: "/what-we-do",
+    items: serviceItems,
+  },
   {
     label: "About Us",
     href: "/about-us/who-we-are",
@@ -38,6 +52,12 @@ const navLinks = [
 ];
 
 const navSections = [
+  {
+    id: "what-we-do",
+    label: "What We Do",
+    title: "Programs & Services",
+    items: serviceItems,
+  },
   {
     id: "about-us",
     label: "About Us",
@@ -122,7 +142,7 @@ const impactAreas = [
 const footerLinks = [
   { label: "Home", href: "/" },
   { label: "Impact", href: "/#impact" },
-  { label: "Our Work", href: "/#programs" },
+  { label: "What We Do", href: "/what-we-do" },
   { label: "About Us", href: "/about-us/who-we-are" },
   { label: "Donate", href: "/donate" },
   { label: "Volunteer", href: "/volunteer" },
