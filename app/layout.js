@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Manrope, Merriweather } from "next/font/google";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
           Skip to main content
         </a>
         {children}
+        <WhatsAppFloat />
       </body>
     </html>
   );
