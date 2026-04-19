@@ -1,5 +1,3 @@
-import { Facebook, Music2 } from "lucide-react";
-
 export default function SiteFooter({ links, contact, copyright }) {
   return (
     <footer id="footer" className="rounded-xl border border-[#090E58]/35 bg-[#090E58] p-5 shadow-sm sm:p-6 md:rounded-2xl md:p-9">
@@ -42,7 +40,9 @@ export default function SiteFooter({ links, contact, copyright }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded-lg border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white transition hover:border-[#E5A223] hover:text-[#E5A223]"
             >
-              <Facebook className="h-3.5 w-3.5" aria-hidden="true" />
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden="true" fill="currentColor">
+                <path d="M13.5 9H16V6h-2.5C10.9 6 9 7.9 9 10.5V13H7v3h2v6h3v-6h2.3l.7-3H12v-2.5c0-.8.7-1.5 1.5-1.5z" />
+              </svg>
               Facebook
             </a>
             <a
@@ -51,7 +51,9 @@ export default function SiteFooter({ links, contact, copyright }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded-lg border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white transition hover:border-[#E5A223] hover:text-[#E5A223]"
             >
-              <Music2 className="h-3.5 w-3.5" aria-hidden="true" />
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden="true" fill="currentColor">
+                <path d="M16 3v10.2a3.8 3.8 0 1 0 2 3.3V8.5c1.2 1.1 2.7 1.9 4 2.1V8.4c-2-.4-4-2.2-4-5.4h-2zM9.8 15.8a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6z" />
+              </svg>
               TikTok
             </a>
           </div>
