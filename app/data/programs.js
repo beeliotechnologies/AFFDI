@@ -109,7 +109,7 @@ export const programs = [
     timeframe: 'Seasonal response windows',
     location: 'Priority food-insecure communities',
     result: 'Stabilized food access during lean periods.',
-    image: '/WhatsApp Image 2026-04-05 at 1.17.10 PM.jpeg',
+    image: '/food.jpg',
     href: '/programs/food-security',
     overview:
       'AFFDI food security interventions protect families during seasonal shortages and support continuity for children.',
