@@ -38,7 +38,7 @@ export default function SiteFooter({ links, contact, copyright }) {
               href="https://www.facebook.com/profile.php?id=61570994797291"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white transition hover:border-[#E5A223] hover:text-[#E5A223]"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-white/30 bg-white px-3 py-1.5 text-xs font-semibold text-[#090E58] shadow-sm transition hover:border-[#E5A223] hover:text-[#E5A223]"
             >
               <img src="https://img.icons8.com/?size=100&id=118468&format=png&color=000000" alt="Facebook" className="h-4 w-4" aria-hidden="true" />
               Facebook
@@ -47,7 +47,7 @@ export default function SiteFooter({ links, contact, copyright }) {
               href="https://www.tiktok.com/@affdi84?_r=1&_t=ZS-95apPjW0k9B"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white transition hover:border-[#E5A223] hover:text-[#E5A223]"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-white/30 bg-white px-3 py-1.5 text-xs font-semibold text-[#090E58] shadow-sm transition hover:border-[#E5A223] hover:text-[#E5A223]"
             >
               <img src="https://img.icons8.com/?size=100&id=84521&format=png&color=000000" alt="TikTok" className="h-4 w-4" aria-hidden="true" />
               TikTok
